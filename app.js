@@ -1,19 +1,71 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const app = express();
-require('dotenv/config');
-const bodyParser = require('body-parser')
-const testroute = require('./server/routes/test');
+"use strict";
 
-app.use(bodyParser.json());
+/**
+ * Import environment
+ */
 
-app.use('/',testroute);
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
-//connnect to db
-mongoose.connect(process.env.DBCONNECT,{ useNewUrlParser: true },()=>console.log("conncectedtdb"));
+/**
+ * Dependencies
+ */
 
+const express = require("express");
+const helmet = require("helmet");
+const cors = require("cors");
 
+/**
+ * Constants
+ */
 
 const port = process.env.PORT || 8888;
 
-app.listen(port);
+/**
+ * Define app
+ */
+
+const app = express();
+
+/**
+ * Config
+ */
+
+app.disable("x-powered-by");
+
+/**
+ * Middleware
+ */
+
+app.use(helmet());
+app.use(cors());
+app.use(express.json());
+
+/**
+ * Routes
+ */
+
+app.use("/", require("./routes/root_router"));
+
+/**
+ * Error Handlers
+ */
+
+app.use(require("./middleware/error_handlers"));
+
+/**
+ * Start server
+ */
+
+if (module === require.main) {
+  app.listen(port, () => {
+    console.log(`Express running on port ${port}`);
+  });
+}
+
+/**
+ * Export app
+ */
+
+module.exports = app;
