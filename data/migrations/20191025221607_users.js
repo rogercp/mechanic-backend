@@ -1,8 +1,20 @@
 
 exports.up = function(knex) {
   return knex.schema.createTable("users", table=>{
-      table.increment();
-
+      users
+        .increment();
+      users
+      .string("email",128)
+        .notNullable()
+        .unique();
+      users
+        .username()
+        .notNullable()
+        .unique()
+      users
+        .string("uid")
+        .notNullable()
+        .unique();
   })
 };
 
