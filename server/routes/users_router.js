@@ -6,8 +6,8 @@
 
 const express = require('express');
 const UsersController = require('../controllers/UsersController');
-const restricted = require('../middleware/restricted');
-const require_body = require('../middleware/require_body');
+// const restricted = require('../middleware/restricted_access');
+// const require_body = require('../middleware/require_body');
 
 /**
  * Define router
