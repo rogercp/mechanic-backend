@@ -16,7 +16,17 @@ const db = require('../../data/dbConfig')
         return db('users')
     }
 
+    static getUserById(id){
+        return db('user').where('id',id).first()
+    }
 
+    static getUserByEmail(email){
+        return db('users').where('email',email).first()
+    }
+
+    static async create(user){
+        
+    }
 
  }
 
