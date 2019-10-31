@@ -52,7 +52,7 @@ app.use("/", require("./routes/root_router"));
  * Error Handlers
  */
 
-// app.use(require("./middleware/error_handlers"));
+app.use(require("./middleware/error_handlers"));
 
 /**
  * Start server
