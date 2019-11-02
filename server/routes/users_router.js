@@ -28,6 +28,9 @@ router.route('/')
  *   POST /users/auth
  */
 
+router.route('/auth')
+.all(restricted)
+.post(UsersController.auth)
 
 /**
  * Routes
