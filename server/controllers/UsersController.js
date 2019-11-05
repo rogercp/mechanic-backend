@@ -15,9 +15,9 @@ const User = require('../models/User')
 
     static async index(req,res){
        
+
         try{
-            
-            const users = await User.all
+            const users = await User.all()
             res.status(200).json(users)
             
         }catch(err){
