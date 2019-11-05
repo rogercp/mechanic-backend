@@ -8,11 +8,11 @@ exports.up = function(knex) {
         .notNullable()
         .unique();
       users
-        .username()
+      .string("username")
         .notNullable()
         .unique()
       users
-        .string("uid")
+      .string("uid")
         .notNullable()
         .unique();
   })

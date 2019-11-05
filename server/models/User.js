@@ -25,7 +25,7 @@ const db = require('../../data/dbConfig')
     }
 
     static async create(user){
-    
+    console.log("hittin it")
         if(process.env.NODE_ENV == 'production' ){
 
             const [ids] = await db('users').insert({
@@ -34,7 +34,7 @@ const db = require('../../data/dbConfig')
               },['id'])
 
     } else{
-
+        console.log("hittin it")
         const [id] = await db('users').insert({
             email: user.email,
             uid: user.uid,

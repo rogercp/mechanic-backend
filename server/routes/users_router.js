@@ -20,7 +20,7 @@ const router = express.Router()
  *   GET /users
  */
 
-router.route('/')
+router.route('/all')
   .get(UsersController.index)
 
 /**

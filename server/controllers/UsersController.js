@@ -14,9 +14,9 @@ const User = require('../models/User')
  class UsersController{
 
     static async index(req,res){
-        console.log("got here")
+       
         try{
-
+            
             const users = await User.all
             res.status(200).json(users)
             
