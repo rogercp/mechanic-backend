@@ -2,7 +2,7 @@
  * Dependencies
  */
 
-const firebase = require("../initializers/firebase");
+const firebase = require("../config/firebase");
 
 
 /**
@@ -36,3 +36,5 @@ const firebase = require("../initializers/firebase");
 
 
  }
+ module.exports = restricted
+ 

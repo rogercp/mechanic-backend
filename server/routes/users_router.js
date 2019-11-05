@@ -6,7 +6,7 @@
 
 const express = require('express');
 const UsersController = require('../controllers/UsersController');
-// const restricted = require('../middleware/restricted_access');
+const restricted = require('../middleware/restricted_access');
 // const require_body = require('../middleware/require_body');
 
 /**

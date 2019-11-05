@@ -43,7 +43,7 @@ const db = require('../../data/dbConfig')
     }
 
  }
-
+ }
  /**
  * Export model
  */
