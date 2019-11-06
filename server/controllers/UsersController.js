@@ -15,7 +15,6 @@ const User = require('../models/User')
 
     static async index(req,res){
        
-
         try{
             const users = await User.all()
             res.status(200).json(users)
@@ -27,7 +26,7 @@ const User = require('../models/User')
     }
 
     static async auth(req,res){
-
+            console.log("hittin")
         try{
 
             const user = {
@@ -38,7 +37,7 @@ const User = require('../models/User')
             let foundUser = await User.getUserByEmail(user.email)
 
             if(foundUser){
-                releaseEvents.status(200).json(foundUser)
+                res.status(200).json(foundUser)
             }else{
                 const id = await User.create(user)
 

@@ -13,7 +13,6 @@ const db = require('../../data/dbConfig')
  class User{
 
     static all(){
-        console.log("hitting it")
         return db('users')
     }
 
