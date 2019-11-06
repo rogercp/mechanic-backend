@@ -9,7 +9,6 @@ exports.up = function(knex) {
         .unique();
       users
       .string("username")
-        .notNullable()
         .unique()
       users
       .string("uid")

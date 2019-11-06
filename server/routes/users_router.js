@@ -29,8 +29,8 @@ router.route('/all')
  */
 
 router.route('/auth')
-.all(restricted)
-.post(UsersController.auth)
+  .all(restricted)
+  .post(UsersController.auth)
 
 /**
  * Routes
