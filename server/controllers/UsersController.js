@@ -45,7 +45,7 @@ const User = require('../models/User')
                 const id = await User.create(user)
 
                 foundUser = await User.getUserById(id)
-
+                    console.log(foundUser,"found")
                 res.status(200).json(foundUser)
             }
 
