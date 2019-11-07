@@ -26,9 +26,10 @@ const User = require('../models/User')
     }
 
     static async auth(req,res){
-            console.log("hittin")
+            console.log("hittin 1")
         try{
-
+            console.log(req.body.email,"emailyy")
+            console.log(req.body.uid,"uidddd")
             const user = {
                 email:req.body.email,
                 uid:req.body.uid,
@@ -37,12 +38,14 @@ const User = require('../models/User')
             let foundUser = await User.getUserByEmail(user.email)
 
             if(foundUser){
+                console.log("hittin 2")
                 res.status(200).json(foundUser)
             }else{
+                console.log("hittin 3")
                 const id = await User.create(user)
 
                 foundUser = await User.getUserById(id)
-
+                    console.log(foundUser,"found")
                 res.status(200).json(foundUser)
             }
 

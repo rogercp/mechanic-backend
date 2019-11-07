@@ -21,7 +21,7 @@
     res.status(err.status).json({
         error :{
             status: err.status,
-    message: err.message
+            message: err.message
         }
     })
  }
