@@ -9,7 +9,7 @@ const firebase = require("../config/firebase");
  * Define middleware
  */
 
- function restricted(req,res,next){
+ function restricted_access(req,res,next){
     const token = req.get("Authorization") || req.body.token
 
     if (token){
@@ -36,5 +36,5 @@ const firebase = require("../config/firebase");
 
 
  }
- module.exports = restricted
+ module.exports = restricted_access
  

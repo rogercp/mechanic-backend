@@ -6,7 +6,7 @@
 
 const express = require('express');
 const UsersController = require('../controllers/UsersController');
-const restricted = require('../middleware/restricted_access');
+const restricted_access = require('../middleware/restricted_access');
 // const require_body = require('../middleware/require_body');
 
 /**
@@ -29,7 +29,7 @@ router.route('/all')
  */
 
 router.route('/auth')
-  .all(restricted)
+  .all(restricted_access)
   .post(UsersController.auth)
 
 /**
