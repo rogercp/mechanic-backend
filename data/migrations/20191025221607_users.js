@@ -10,6 +10,7 @@ exports.up = function(knex) {
       .string("uid")
         .notNullable()
         .unique();
+      users.timestamps(true, true);
   })
 };
 
