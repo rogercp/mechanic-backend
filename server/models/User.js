@@ -17,7 +17,7 @@ const db = require('../../data/dbConfig')
     }
 
     static getUserById(id){
-        return db('user').where('id',id).first()
+        return db('users').where('id',id).first()
     }
 
     static getUserByEmail(email){
@@ -28,7 +28,7 @@ const db = require('../../data/dbConfig')
     console.log("hittin 4")
     console.log( user, "create")
    
-    if(process.env.NODE_ENV == 'development'){
+    if(process.env.NODE_ENV == 'production'){
             console.log("in")
             const [ids] = await db('users').insert({
                 email: user.email,
@@ -42,8 +42,7 @@ const db = require('../../data/dbConfig')
         const [id] = await db('users').insert({
             email: user.email,
             uid: user.uid,
-          },['id'])
-          console.log(id,"id")
+          })
           return id
     }
 
