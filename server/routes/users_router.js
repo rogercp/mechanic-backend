@@ -23,6 +23,9 @@ const router = express.Router()
 router.route('/all')
   .get(UsersController.index)
 
+  router.route("/:id")
+  .get(CasesController.indexById)
+
 /**
  * Routes
  *   POST /users/auth

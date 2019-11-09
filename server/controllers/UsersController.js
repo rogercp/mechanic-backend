@@ -25,6 +25,17 @@ const User = require('../models/User')
 
     }
 
+    static async indexById(req,res){
+       const id = req.params.id
+        try{
+            const user = await User.getUserById(id)
+            res.status(200).json(user)
+            
+        }catch(err){
+            res.status(500).json({error:{message:"Internal Service Error "}})
+        }
+
+    }
     static async auth(req,res){
             console.log("hittin 1")
         try{
