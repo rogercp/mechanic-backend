@@ -66,6 +66,20 @@ const User = require('../models/User')
         }
     }
 
+
+    static async create(req, res) {
+        try {
+          const new_user = await User.create2(req.body);
+    
+          res.status(201).json(new_user);
+        } catch (err) {
+          console.error(err);
+          res.status(500).json({ error: { message: "Internal Server Error" } });
+        }
+      }
+
+
+
  }
 
 

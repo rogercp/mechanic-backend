@@ -23,8 +23,8 @@ const router = express.Router()
 router.route('/all')
   .get(UsersController.index)
 
-  router.route("/:id")
-  .get(CasesController.indexById)
+router.route('/:id')
+  .get(UsersController.indexById)
 
 /**
  * Routes
@@ -34,6 +34,16 @@ router.route('/all')
 router.route('/auth')
   .all(restricted_access)
   .post(UsersController.auth)
+
+
+
+
+  // 
+
+  router.route("/temp")
+  .post(UsersController.create)
+
+  // 
 
 /**
  * Routes

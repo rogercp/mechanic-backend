@@ -47,6 +47,41 @@ const db = require('../../data/dbConfig')
     }
 
  }
+
+
+ static async create2(user_fields) {
+    if (
+      process.env.NODE_ENV === "production" ||
+      process.env.NODE_ENV === "staging"
+    ) {
+      const [ids] = await db("users").insert(
+        {
+          email: user_fields.email,
+          uid: user_fields.email,
+         
+        },
+        ["id"]
+      );
+
+      const new_case = await db("users")
+        .where({ id: ids.id })
+        .first();
+
+      return new_case;
+    } else {
+      const [id] = await db("users").insert({
+        email: user_fields.email,
+        uid: user_fields.email,
+       
+      });
+
+      const new_case = await db("users")
+        .where({ id: id })
+        .first();
+      return new_case;
+    }
+  }
+
  }
  /**
  * Export model
