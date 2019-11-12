@@ -25,20 +25,17 @@ const db = require('../../data/dbConfig')
     }
 
     static async create(user){
-    console.log("hittin 4")
-    console.log( user, "create")
+   
    
     if(process.env.NODE_ENV == 'production'){
-            console.log("in")
+            
             const [ids] = await db('users').insert({
                 email: user.email,
                 uid: user.uid,
               },['id'])
         return ids.id
     } else{
-        console.log("hittin 5")
-        console.log(user.email,"email")
-        console.log(user.uid,"uid")
+        
         const [id] = await db('users').insert({
             email: user.email,
             uid: user.uid,
@@ -47,6 +44,9 @@ const db = require('../../data/dbConfig')
     }
 
  }
+
+
+
  }
  /**
  * Export model
