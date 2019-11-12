@@ -36,15 +36,6 @@ router.route('/auth')
   .post(UsersController.auth)
 
 
-
-
-  // 
-
-  router.route("/temp")
-  .post(UsersController.create)
-
-  // 
-
 /**
  * Routes
  *   PUT /users/deactivate
