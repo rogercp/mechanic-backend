@@ -7,7 +7,7 @@
 const express = require('express');
 const CarsController = require('../controllers/CarsController.js');
 const restricted_access = require('../middleware/restricted_access');
-// const require_body = require('../middleware/require_body');
+const require_body = require('../middleware/require_body');
 
 /**
  * Define router
@@ -17,8 +17,12 @@ const router = express.Router()
 
 /**
  * Routes
- *   GET 
+ *   GET/POST /cars
  */
+
+router.route("/all")
+    .all(restricted_access)
+    .get(CarsController.all)
 
 
 
@@ -28,14 +32,29 @@ const router = express.Router()
  */
 
 
+router.route("/")
+    .all(restricted_access)
+    .get(CarsController.index)
+    .all(require_body(["car_type"]))
+    .post(CarsController.create)
 
 
 /**
  * Routes
- *   PUT 
+ *   GET/PUT 
  */
 
+router.route("/:id")
+.all(restricted_access)
+.get(CarsController.indexById)
+.delete(CarsController.delete)
 
+
+
+ /**
+ * Routes
+ *   DEL  
+ */
 /*
 /**
  * Export router

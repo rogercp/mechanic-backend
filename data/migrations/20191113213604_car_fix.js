@@ -5,15 +5,10 @@ exports.up = function(knex) {
     table.increments();
     table.integer('car_id');
     table.boolean("fix_not_maintenence");
-    table.text('maintenence');
-    table.text('maintenence_description');
-    table.text('maintenence_date');
-    table.integer('maintenence_price');
     table.text('fix');
     table.text('fix_description');
     table.text('fix_date');
     table.integer('fix_price');
-
   })
 };
 
