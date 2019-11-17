@@ -15,7 +15,7 @@ const db = require('../../data/dbConfig')
    static async all(email){
    
       if(email){
-         return db('user_cars').where("user_email, email");
+         return db('user_cars').where("user_email", email);
 
       }else{
          return db("user_cars");

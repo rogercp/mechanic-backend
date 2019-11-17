@@ -22,7 +22,6 @@ class CarsController{
   }
 
   static async index(req, res) {
-    console.log("hitinindex")
     try {
 
       const cars = await Car.all(req.body.email);
