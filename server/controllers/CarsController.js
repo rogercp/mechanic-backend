@@ -45,23 +45,6 @@ class CarsController{
     }
   }
 
-  static async show(req, res) {
-    try {
-      const fetched_car = await Car.find(req.params.id);
-
-      if (fetched_car) {
-        res.status(200).json(fetched_car);
-      } else {
-        res.status(404).json({ errer: { message: "Not Found" } });
-      }
-    } catch (err) {
-      console.error(err);
-      return res
-        .status(500)
-        .json({ error: { message: "Internal Server Error" } });
-    }
-  }
-
 
 
   static async delete(req, res) {
