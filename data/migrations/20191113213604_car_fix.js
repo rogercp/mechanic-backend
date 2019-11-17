@@ -9,7 +9,6 @@ exports.up = function(knex) {
     table.text('fix_description');
     table.text('fix_date');
     table.integer('fix_price');
-
   })
 };
 

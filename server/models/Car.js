@@ -10,7 +10,7 @@ const db = require('../../data/dbConfig')
  * Define model
  */
 
- class User{
+ class Car{
 
     static all(){
         
@@ -40,4 +40,4 @@ const db = require('../../data/dbConfig')
  * Export model
  */
 
-module.exports = User
+module.exports = Car
