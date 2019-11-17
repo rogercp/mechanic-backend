@@ -20,7 +20,6 @@ const db = require('../../data/dbConfig')
       }else{
          return db("user_cars");
       }
-     
     
    }    
 

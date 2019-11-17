@@ -28,8 +28,6 @@ const firebase = require("../config/firebase");
         })
 
 
-
-
     }else{
         res.status(400).json({message : "No token for authorization provided"})
     }

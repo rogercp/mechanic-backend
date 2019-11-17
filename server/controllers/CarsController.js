@@ -35,6 +35,7 @@ class CarsController{
   }
 
   static async create(req, res) {
+    console.log("hittin")
     try {
       const new_car = await Car.create(req.body);
 
