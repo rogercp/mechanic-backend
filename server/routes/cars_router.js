@@ -25,6 +25,13 @@ router.route("/all")
     .get(CarsController.all)
 
 
+
+/**
+ * Routes
+ *   POST 
+ */
+
+
 router.route("/")
     .all(restricted_access)
     .get(CarsController.index)
@@ -34,18 +41,20 @@ router.route("/")
 
 /**
  * Routes
- *   POST 
+ *   GET/PUT 
  */
 
+router.route("/:id")
+.all(restricted_access)
+.get(CarsController.indexById)
+.delete(CarsController.delete)
 
 
 
-/**
+ /**
  * Routes
- *   PUT 
+ *   DEL  
  */
-
-
 /*
 /**
  * Export router

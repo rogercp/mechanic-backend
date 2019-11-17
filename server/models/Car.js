@@ -21,7 +21,19 @@ const db = require('../../data/dbConfig')
          return db("user_cars");
       }
     
-   }    
+   }
+   
+   static findById(id) {
+      return db("user_cars")
+        .where({ id: id })
+        .first();
+    }
+
+
+    static async delete(id, email) {
+      return await db("user_cars").where({ id: id, user_email: email }).del()
+    }
+
 
     static async create(car_fields){
       if (
@@ -67,6 +79,7 @@ const db = require('../../data/dbConfig')
     
     }
 
+   
  }
 
 

@@ -35,6 +35,21 @@ class CarsController{
     }
   }
 
+  static async indexById(req, res) {
+    const id = req.params.id;
+    try {
+      const carById = await Car.findById(id);
+      return res.status(200).json(carById);
+      
+    } catch (err) {
+      console.error(err);
+      return res
+        .status(500)
+        .json({ error: { message: "Internal Server Error" } });
+    }
+  }
+
+
   static async create(req, res) {
     console.log("hittin")
     try {
