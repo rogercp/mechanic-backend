@@ -27,6 +27,11 @@ const router = express.Router()
  *   POST 
  */
 
+router.route("/")
+    .all(restricted_access)
+    .get(CarFixController.index)
+    .post(CarFixController.create)
+
 
 
 
