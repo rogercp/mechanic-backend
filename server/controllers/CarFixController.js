@@ -13,15 +13,9 @@ class CarFixController{
         }
      }
  
-     static async indexById(req, res) {
-         const id = req.params.id;
-     
-         try {
-          
-         } catch (error) {
-           
-         }
-       }
+     static async create(req, res) {
+         
+     }
 
 }
   
