@@ -54,7 +54,7 @@ class CarsController{
     console.log("hittin")
     try {
       const new_car = await Car.create(req.body);
-
+      
       res.status(201).json(new_car);
     } catch (err) {
       console.error(err);
