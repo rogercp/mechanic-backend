@@ -26,8 +26,8 @@ const db = require('../../data/dbConfig')
 
     static async create(car_fields){
    
+        return db('car_fix').insert(car_fields)
    
-     
     
     }
 

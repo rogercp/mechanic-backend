@@ -19,7 +19,12 @@ class CarFixController{
      static async create(req, res) {
       try{
         const car_fix = await CarFix.create({
-
+          car_id:req.params.id,
+          fix_not_maintenence:req.body.fix_not_maintenence,
+          fix:req.body.fix,
+          fix_description:req.body.fix_description,
+          fix_date:req.body.fix_date,
+          fix_price:req.body.fix_price
         });
         res.status(201).json(car_fix);
       }catch(err){
