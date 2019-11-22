@@ -8,9 +8,10 @@ const Car = require('../models/Car')
 
 
 class CarFixController{
-    static index(req, res){
+    static async index(req, res){
         try{
- 
+          const car_fixes = await CarFix.all(req.params.id)  
+          res.status(201).json(car_fixes)
         }catch(err){
  
         }
@@ -34,14 +35,6 @@ class CarFixController{
       }
       }
      
-
-     static indexById(req, res){
-      try{
-
-      }catch(err){
-
-      }
-   }
 
    static delete(req, res){
     try{

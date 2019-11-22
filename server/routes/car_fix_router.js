@@ -22,7 +22,6 @@ const router = express.Router()
 
 router.route("/:id")
     .all(restricted_access)
-    .get(CarFixController.indexById)
     .delete(CarFixController.delete)
 
 
