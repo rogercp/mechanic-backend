@@ -17,9 +17,13 @@ const router = express.Router()
 
 /**
  * Routes
- *   GET 
+ *   GET/DEL'/car_fix/:id'
  */
 
+router.route("/:id")
+    .all(restricted_access)
+    .get(CarFixController.indexById)
+    .delete(CarFixController.delete)
 
 
 /**
@@ -27,7 +31,7 @@ const router = express.Router()
  *   POST 
  */
 
-router.route("/")
+router.route("/:id")
     .all(restricted_access)
     .get(CarFixController.index)
     .post(CarFixController.create)
