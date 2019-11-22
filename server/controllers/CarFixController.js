@@ -9,6 +9,7 @@ const Car = require('../models/Car')
 
 class CarFixController{
     static async index(req, res){
+      console.log("ayyy")
         try{
           const car_fixes = await CarFix.all(req.params.id)  
           res.status(201).json(car_fixes)
@@ -18,15 +19,11 @@ class CarFixController{
      }
  
      static async create(req, res) {
+    
       try{
-        const car_fix = await CarFix.create({
-          car_id:req.params.id,
-          fix_not_maintenence:req.body.fix_not_maintenence,
-          fix:req.body.fix,
-          fix_description:req.body.fix_description,
-          fix_date:req.body.fix_date,
-          fix_price:req.body.fix_price
-        });
+        
+        const car_fix = await CarFix.create(req.body,req.params);
+  
         res.status(201).json(car_fix);
       }catch(err){
         return res
