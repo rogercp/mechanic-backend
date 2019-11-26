@@ -8,13 +8,16 @@ const Car = require('../models/Car')
 
 
 class CarFixController{
+
     static async index(req, res){
       console.log("ayyy")
         try{
           const car_fixes = await CarFix.all(req.params.id)  
           res.status(201).json(car_fixes)
         }catch(err){
- 
+ return res
+        .status(500)
+        .json({ error: { message: "Internal Server Error" } });
         }
      }
  
@@ -34,10 +37,12 @@ class CarFixController{
      
 
    static delete(req, res){
-    try{
-
-    }catch(err){
-
+    try {
+      
+      res.status(201).json({message: "Successfully deleted a car fix"});
+    } catch (err) {
+     
+      return res.status(500).json({ error: { message: "Internal Server Error" } });
     }
  }
 

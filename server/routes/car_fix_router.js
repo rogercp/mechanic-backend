@@ -17,10 +17,10 @@ const router = express.Router()
 
 /**
  * Routes
- *   GET/DEL'/car_fix/:id'
+ *   GET/DEL'/car_fix/carid/fixid'
  */
 
-router.route("/:id")
+router.route("/:carId/:carFixId")
     .all(restricted_access)
     .delete(CarFixController.delete)
 
@@ -34,7 +34,7 @@ router.route("/:id")
     .all(restricted_access)
     .get(CarFixController.index)
     .post(CarFixController.create)
-
+    .delete(CarFixController.delete)
 
 
 
