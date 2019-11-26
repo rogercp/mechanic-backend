@@ -14,16 +14,16 @@ const db = require('../../data/dbConfig')
 
     static all(id){
         console.log("ayyymore")
-        return db('car_fix').where("id",id)
+        return db('car_fix').where("car_id",id)
     }
 
     static findByUserEmail(){
         
     }
 
-    static findById(){
-        return db('car_fix').where("id",car_id).first()
-    }
+    // static findById(){
+    //     return db('car_fix').where("id",car_id).first()
+    // }
 
     static async create(car_fields,car_field_id){
         
