@@ -6,28 +6,32 @@ const Image = require('../models/Image')
  */
 
 class ImagesController{
-    static index(req, res){
+    static async index(req, res){
         try{
            
-            res.status(200).json(users)
+            const images = await Image.findByCarId(req.params.id);
+
+            res.status(200).json(images)
             
         }catch(err){
             res.status(500).json({error:{message:"Internal Service Error "}})
         }
-
 
 
     }
-    static create(req, res){
+    static async create(req, res){
         try{
             
-            
-            res.status(200).json(users)
+            const images = await Image.create({
+                car_id:req.params.id,
+                file_name:req.body.file_name
+
+            });
+            res.status(201).json(images)
             
         }catch(err){
             res.status(500).json({error:{message:"Internal Service Error "}})
         }
-
 
 
     }
