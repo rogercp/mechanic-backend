@@ -7,7 +7,8 @@
 const express = require('express');
 const CarFixController = require('../controllers/CarFixController.js');
 const restricted_access = require('../middleware/restricted_access');
-// const require_body = require('../middleware/require_body');
+const ImagesController = require('../controllers/ImagesController.js');
+const require_body = require('../middleware/require_body');
 
 /**
  * Define router
