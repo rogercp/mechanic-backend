@@ -37,6 +37,11 @@ router.route("/:id")
     .delete(CarFixController.delete)
 
 
+router.route("/:id/images")
+  .all(restricted_access)
+  .get(ImagesController.index)
+  .all(require_body(["file_name"]))
+  .post(ImagesController.createFix)
 
 /**
  * Routes
