@@ -39,7 +39,7 @@ router.route("/:id")
 
 router.route("/:id/images")
   .all(restricted_access)
-  .get(ImagesController.index)
+  .get(ImagesController.indexFix)
   .all(require_body(["file_name"]))
   .post(ImagesController.createFix)
 

@@ -19,6 +19,19 @@ class ImagesController{
 
 
     }
+    static async indexFix(req, res){
+        try{
+           
+            const images = await Image.findByCarFixId(req.params.id);
+
+            res.status(200).json(images)
+            
+        }catch(err){
+            res.status(500).json({error:{message:"Internal Service Error "}})
+        }
+
+
+    }
     static async create(req, res){
         try{
             

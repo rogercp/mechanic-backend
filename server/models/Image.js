@@ -21,6 +21,10 @@ const db = require("../../data/dbConfig");
       .where("car_id", car_id)
   }
 
+  static findByCarFixId(car_fix_id) {
+    return db("images")
+      .where("car_fix_id", car_fix_id)
+  }
 
 }
 
