@@ -4,6 +4,7 @@ exports.up = function(knex) {
   return knex.schema.createTable('images', table => {
     table.increments();
     table.integer('car_id');
+    table.integer('car_fix_id');
     table.text("file_name");
   })
 };
