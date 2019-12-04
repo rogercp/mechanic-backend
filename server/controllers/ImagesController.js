@@ -32,6 +32,8 @@ class ImagesController{
 
 
     }
+
+
     static async create(req, res){
         try{
             
@@ -45,7 +47,6 @@ class ImagesController{
         }catch(err){
             res.status(500).json({error:{message:"Internal Service Error "}})
         }
-
 
     }
     static async createFix(req, res){
