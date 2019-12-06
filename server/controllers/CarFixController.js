@@ -10,7 +10,6 @@ const Car = require('../models/Car')
 class CarFixController{
 
     static async index(req, res){
-      console.log("ayyy")
         try{
           const car_fixes = await CarFix.all(req.params.id)  
           res.status(201).json(car_fixes)
