@@ -13,7 +13,6 @@ const db = require('../../data/dbConfig')
  class CarFix{
 
     static all(id){
-        console.log("ayyymore")
         return db('car_fix').where("car_id",id)
     }
 
