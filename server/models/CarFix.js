@@ -63,8 +63,10 @@ const db = require('../../data/dbConfig')
              return car_fix;
           }
 
+    }
 
-
+    static async delete(id) {
+      return await db("car_fix").where({ id: id}).del()
     }
 
  }
