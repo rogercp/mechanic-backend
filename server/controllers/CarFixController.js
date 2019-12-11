@@ -14,11 +14,12 @@ class CarFixController{
           const car_fixes = await CarFix.all(req.params.id)  
           res.status(201).json(car_fixes)
         }catch(err){
- return res
+        return res
         .status(500)
         .json({ error: { message: "Internal Server Error" } });
         }
      }
+
  
      static async create(req, res) {
     
@@ -35,8 +36,12 @@ class CarFixController{
       }
      
 
-   static delete(req, res){
+   static async delete(req, res){
+
     try {
+
+
+     await CarFix.delete(req.params.id)
       
       res.status(201).json({message: "Successfully deleted a car fix"});
     } catch (err) {
