@@ -37,12 +37,11 @@ class CarFixController{
      
 
    static async delete(req, res){
-     
+
     try {
 
-      console.log(res)
 
-     await CarFix.delete(res.id)
+     await CarFix.delete(req.params.id)
       
       res.status(201).json({message: "Successfully deleted a car fix"});
     } catch (err) {
