@@ -10,7 +10,6 @@ class ImagesController{
         try{
            
             const images = await Image.findByCarId(req.params.id);
-
             res.status(200).json(images)
             
         }catch(err){
@@ -19,22 +18,21 @@ class ImagesController{
 
 
     }
-    static async indexFix(req, res){
+    static async indexFixImage(req, res){
         try{
            
             const images = await Image.findByCarFixId(req.params.id);
-
             res.status(200).json(images)
             
         }catch(err){
             res.status(500).json({error:{message:"Internal Service Error "}})
         }
-
 
     }
 
 
     static async create(req, res){
+        console.log(req.params, req.body, "this")
         try{
             
             const images = await Image.create({
@@ -47,9 +45,9 @@ class ImagesController{
         }catch(err){
             res.status(500).json({error:{message:"Internal Service Error "}})
         }
-
     }
-    static async createFix(req, res){
+    static async createFixImage(req, res){
+        console.log(req.params, req.body, "this is it")
         try{
             
             const images = await Image.create({
@@ -62,8 +60,6 @@ class ImagesController{
         }catch(err){
             res.status(500).json({error:{message:"Internal Service Error "}})
         }
-
-
     }
 }
   
