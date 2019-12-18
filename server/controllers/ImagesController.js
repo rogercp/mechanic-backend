@@ -32,6 +32,7 @@ class ImagesController{
 
 
     static async create(req, res){
+        console.log(req.params, req.body, "this")
         try{
             
             const images = await Image.create({
@@ -44,23 +45,21 @@ class ImagesController{
         }catch(err){
             res.status(500).json({error:{message:"Internal Service Error "}})
         }
-
     }
     static async createFixImage(req, res){
+        console.log(req.params, req.body, "this is it")
         try{
             
-            const images = await Image.createFixImage(({
+            const images = await Image.create({
                 car_fix_id:req.params.id,
                 file_name:req.body.file_name
 
-            }));
+            });
             res.status(201).json(images)
             
         }catch(err){
             res.status(500).json({error:{message:"Internal Service Error "}})
         }
-
-
     }
 }
   
