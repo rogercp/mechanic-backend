@@ -9,8 +9,8 @@ class ImagesController{
     static async index(req, res){
         try{
            
-            const images = await Image.findByCarId(req.params.id);
 
+            const images = await Image.findByCarId(req.params.id);
             res.status(200).json(images)
             
         }catch(err){
@@ -19,7 +19,7 @@ class ImagesController{
 
 
     }
-    static async indexFix(req, res){
+    static async indexFixImage(req, res){
         try{
            
             const images = await Image.findByCarFixId(req.params.id);
@@ -49,14 +49,14 @@ class ImagesController{
         }
 
     }
-    static async createFix(req, res){
+    static async createFixImage(req, res){
         try{
             
-            const images = await Image.create({
+            const images = await Image.createFixImage(({
                 car_fix_id:req.params.id,
                 file_name:req.body.file_name
 
-            });
+            }));
             res.status(201).json(images)
             
         }catch(err){
