@@ -9,7 +9,6 @@ class ImagesController{
     static async index(req, res){
         try{
            
-
             const images = await Image.findByCarId(req.params.id);
             res.status(200).json(images)
             
@@ -23,13 +22,11 @@ class ImagesController{
         try{
            
             const images = await Image.findByCarFixId(req.params.id);
-
             res.status(200).json(images)
             
         }catch(err){
             res.status(500).json({error:{message:"Internal Service Error "}})
         }
-
 
     }
 

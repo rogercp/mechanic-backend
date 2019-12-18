@@ -25,7 +25,11 @@ const db = require('../../data/dbConfig')
     // }
 
     static async create(car_fields,car_field_id){
-        
+      
+     function parseDate(date){
+        var m = date.split(",")[0]
+        return m
+      }
         
         if (
             process.env.NODE_ENV === "production" 
@@ -36,7 +40,7 @@ const db = require('../../data/dbConfig')
                 fix_not_maintenence: car_fields.fix_not_maintenence,
                 fix: car_fields.fix,
                 fix_description: car_fields.fix_description,
-                fix_date: car_fields.fix_date,
+                fix_date: parseDate(car_fields.fix_date),
                 fix_price: car_fields.fix_price
                },
                ["id"]
@@ -52,7 +56,7 @@ const db = require('../../data/dbConfig')
                 fix_not_maintenence:car_fields.fix_not_maintenence,
                 fix:car_fields.fix,
                 fix_description:car_fields.fix_description,
-                fix_date:car_fields.fix_date,
+                fix_date: parseDate(car_fields.fix_date),
                 fix_price:car_fields.fix_price
                
              });
