@@ -32,7 +32,6 @@ const firebase = require("../config/firebase");
         res.status(400).json({message : "No token for authorization provided"})
     }
 
-
  }
  module.exports = restricted_access
  

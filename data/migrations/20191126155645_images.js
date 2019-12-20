@@ -5,6 +5,7 @@ exports.up = function(knex) {
     table.increments();
     table.integer('car_id');
     table.integer('car_fix_id');
+    table.integer('user_id');
     table.text("file_name");
   })
 };
