@@ -50,11 +50,12 @@ class ImagesController{
         console.log(req.params, req.body, "this is it")
         try{
             
-            const images = await Image.create({
+            const images = await Image.createFixImage({
                 car_fix_id:req.params.id,
                 file_name:req.body.file_name
 
             });
+
             res.status(201).json(images)
             
         }catch(err){

@@ -16,9 +16,9 @@ const db = require("../../data/dbConfig");
     return db('images').insert(image)
   }
 
-  // static createFixImage(image) {
-  //   return db('images').insert(image)
-  // }
+  static createFixImage(image) {
+    return db('images').insert(image)
+  }
 
   static findByCarId(car_id) {
     return db("images")
