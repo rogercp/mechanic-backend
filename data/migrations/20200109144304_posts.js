@@ -7,6 +7,7 @@ exports.up = function(knex) {
       table.text("category");
       table.text('user_email');
       table.text('user_name');
+      table.text('post_text');
     })
   };
   
