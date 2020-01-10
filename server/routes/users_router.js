@@ -36,6 +36,11 @@ router.route('/auth')
   .post(UsersController.auth)
 
 
+
+router.route('/deactivate')
+ .all(restricted)
+ .put(UsersController.deactivate)
+
 /**
  * Routes
  *   PUT /users/deactivate
