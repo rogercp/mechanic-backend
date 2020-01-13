@@ -37,6 +37,15 @@ router.route("/:id")
     .all(restricted_access)
     .delete(PostsController.delete)
 
+router.route("/:id/inc")
+    .all(restricted_access)
+    .patch(PostsController.incrementLikes)
+
+router.route("/:id/dec")
+    .all(restricted_access)
+    .patch(PostsController.decrementLikes)
+
+
  /**
  * Routes
  *   DEL  

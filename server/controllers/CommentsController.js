@@ -46,6 +46,28 @@ class CommentController{
           }
 
 
+    static async incrementLikes(req, res) {
+            try {
+       
+            await Comment.increaseLikes(req.params.id);
+        
+              return res.status(200).json({ message: "Successfully incremented likes on post" });
+            } catch (err) {
+              return res.status(500).json({ error: { message: "Internal Server Error" } });
+            }
+          } 
+    
+    static async decrementLikes(req, res) {
+            try {
+       
+            await Comment.decreaseLikes(req.params.id);
+        
+              return res.status(200).json({ message: "Successfully decremented likes on post" });
+            } catch (err) {
+              return res.status(500).json({ error: { message: "Internal Server Error" } });
+            }
+          }
+
 }
   
   /**

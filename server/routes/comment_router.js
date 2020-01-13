@@ -33,7 +33,11 @@ router.route("/:id")
     .all(restricted_access)
     .delete(CommentsController.deleteComment)
 
+    router.route("/:id/inc")
+    .patch(CommentsController.incrementLikes)
 
+router.route("/:id/dec")
+    .patch(CommentsController.decrementLikes)
  /**
  * Routes
  *   DEL  

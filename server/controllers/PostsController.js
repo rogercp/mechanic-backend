@@ -56,7 +56,30 @@ class PostsController{
               return res.status(500).json({ error: { message: "Internal Server Error" } });
             }
           }
-       
+      
+
+
+    static async incrementLikes(req, res) {
+        try {
+   
+        await Post.increaseLikes(req.params.id);
+    
+          return res.status(200).json({ message: "Successfully incremented likes on post" });
+        } catch (err) {
+          return res.status(500).json({ error: { message: "Internal Server Error" } });
+        }
+      } 
+
+      static async decrementLikes(req, res) {
+        try {
+   
+        await Post.decreaseLikes(req.params.id);
+    
+          return res.status(200).json({ message: "Successfully decremented likes on post" });
+        } catch (err) {
+          return res.status(500).json({ error: { message: "Internal Server Error" } });
+        }
+      }
 }
   
   /**
