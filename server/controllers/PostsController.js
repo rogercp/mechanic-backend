@@ -11,7 +11,7 @@ class PostsController{
    
   static async allUserPosts(req, res) {
     try {
-      const posts = await Post.allUserPosts();
+      const posts = await Post.allUserPosts(req.body.email);
 
       return res.status(200).json(posts);
     } catch (err) {
@@ -32,9 +32,7 @@ class PostsController{
         .json({ error: { message: "Internal Server Error" } });
     }
   }
-
-
-
+ 
     static async create(req, res) {
     
         try{
@@ -58,7 +56,30 @@ class PostsController{
               return res.status(500).json({ error: { message: "Internal Server Error" } });
             }
           }
-       
+      
+
+
+    static async incrementLikes(req, res) {
+        try {
+   
+        await Post.increaseLikes(req.params.id);
+    
+          return res.status(200).json({ message: "Successfully incremented likes on post" });
+        } catch (err) {
+          return res.status(500).json({ error: { message: "Internal Server Error" } });
+        }
+      } 
+
+      static async decrementLikes(req, res) {
+        try {
+   
+        await Post.decreaseLikes(req.params.id);
+    
+          return res.status(200).json({ message: "Successfully decremented likes on post" });
+        } catch (err) {
+          return res.status(500).json({ error: { message: "Internal Server Error" } });
+        }
+      }
 }
   
   /**

@@ -70,6 +70,21 @@ const db = require('../../data/dbConfig')
       
      }
 
+
+    static async increaseLikes(id){
+        return db('posts')
+            .where("id", id) 
+            .increment('like', 1)
+    
+        }
+
+    static async decreaseLikes(){
+        return db('posts')
+            .where("id", id) 
+            .decrement('like', 1)
+    }
+    
+
   
 
    
