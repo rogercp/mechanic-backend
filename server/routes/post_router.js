@@ -20,10 +20,22 @@ const router = express.Router()
  *   GET/POST
  */
 
-router.route("/all")
-    .all(restricted_access)
-    
 
+router.route("/all")
+    .get(PostsController.allPosts)
+
+router.route("/")
+    .all(restricted_access)
+    .get(PostsController.allUserPosts)
+
+router.route("/")
+    .all(restricted_access)
+    .post(PostsController.create)
+    .all(require_body(["post_text"]))
+
+router.route("/:id")
+    .all(restricted_access)
+    .delete(PostsController.delete)
 
  /**
  * Routes

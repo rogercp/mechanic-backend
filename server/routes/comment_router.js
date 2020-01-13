@@ -20,9 +20,18 @@ const router = express.Router()
  *   GET/POST
  */
 
+
 router.route("/all")
+    .get(CommentsController.allPostsComments)
+
+router.route("/")
     .all(restricted_access)
-   
+    .post(CommentsController.createComment)
+    .all(require_body(["comment_text"]))
+
+router.route("/:id")
+    .all(restricted_access)
+    .delete(CommentsController.deleteComment)
 
 
  /**

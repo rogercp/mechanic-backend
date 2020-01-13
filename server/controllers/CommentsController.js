@@ -20,8 +20,7 @@ class CommentController{
         .json({ error: { message: "Internal Server Error" } });
     }
   }
-
-
+ 
     static async createComment(req, res) {
     
         try{

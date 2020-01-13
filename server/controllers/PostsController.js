@@ -11,7 +11,7 @@ class PostsController{
    
   static async allUserPosts(req, res) {
     try {
-      const posts = await Post.allUserPosts();
+      const posts = await Post.allUserPosts(req.body.email);
 
       return res.status(200).json(posts);
     } catch (err) {
@@ -32,9 +32,7 @@ class PostsController{
         .json({ error: { message: "Internal Server Error" } });
     }
   }
-
-
-
+ 
     static async create(req, res) {
     
         try{
