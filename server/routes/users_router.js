@@ -38,7 +38,7 @@ router.route('/auth')
 
 
 router.route('/deactivate')
- .all(restricted)
+ .all(restricted_access)
  .put(UsersController.deactivate)
 
 /**

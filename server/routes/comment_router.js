@@ -5,7 +5,7 @@
  */
 
 const express = require('express');
-const CommentController = require('../controllers/CommentController.js');
+const CommentsController = require('../controllers/CommentsController.js');
 const restricted_access = require('../middleware/restricted_access');
 const require_body = require('../middleware/require_body');
 
@@ -23,7 +23,6 @@ const router = express.Router()
 router.route("/all")
     .all(restricted_access)
    
-
 
 
  /**

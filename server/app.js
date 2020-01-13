@@ -50,8 +50,8 @@ app.use("/", require("./routes/root_router"));
 app.use("/users", require("./routes/users_router"));
 app.use("/cars", require("./routes/cars_router"));
 app.use("/car_fix", require("./routes/car_fix_router"));
-app.use("/post", require("./routes/post"));
-app.use("/comment", require("./routes/comment"));
+app.use("/post", require("./routes/post_router"));
+app.use("/comment", require("./routes/comment_router"));
 
 /**
  * Error Handlers
