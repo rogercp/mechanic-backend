@@ -6,6 +6,9 @@
 
 const moment = require('moment')
 const User = require('../models/User')
+const Image = require('../models/Image')
+
+
 
 /**
  * Define controller
@@ -74,6 +77,37 @@ const User = require('../models/User')
           res.status(500).json({ error: { message: 'Internal Server Error' }})
         }
       }
+
+
+      static async indexImage(req, res){
+        try{
+           
+            const userimage = await Image.fetchUserImage(req.params.id);
+           
+
+            res.status(200).json(userimage)
+            
+        }catch(err){
+            res.status(500).json({error:{message:"Internal Service Error "}})
+        }
+
+
+    }
+
+    static async createImage(req, res){
+        try{
+            
+            const userimage = await Image.createUserImage({
+                car_id:req.params.id,
+                file_name:req.body.file_name
+
+            });
+            res.status(201).json(userimage)
+            
+        }catch(err){
+            res.status(500).json({error:{message:"Internal Service Error "}})
+        }
+    }
 
 
 
