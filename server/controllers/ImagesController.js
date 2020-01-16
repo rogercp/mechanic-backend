@@ -10,6 +10,8 @@ class ImagesController{
         try{
            
             const images = await Image.findByCarId(req.params.id);
+           
+
             res.status(200).json(images)
             
         }catch(err){
@@ -22,6 +24,7 @@ class ImagesController{
         try{
            
             const images = await Image.findByCarFixId(req.params.id);
+            console.log(images, "this is the image")
             res.status(200).json(images)
             
         }catch(err){
@@ -32,7 +35,6 @@ class ImagesController{
 
 
     static async create(req, res){
-        console.log(req.params, req.body, "this")
         try{
             
             const images = await Image.create({
@@ -47,7 +49,7 @@ class ImagesController{
         }
     }
     static async createFixImage(req, res){
-        console.log(req.params, req.body, "this is it")
+        console.log(req.params, req.body, "this i the post for carfix image")
         try{
             
             const images = await Image.createFixImage({
@@ -55,7 +57,6 @@ class ImagesController{
                 file_name:req.body.file_name
 
             });
-
             res.status(201).json(images)
             
         }catch(err){
