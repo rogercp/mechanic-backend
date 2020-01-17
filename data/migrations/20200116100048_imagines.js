@@ -1,7 +1,7 @@
 'use strict'
 
 exports.up = function(knex) {
-  return knex.schema.createTable('images', table => {
+  return knex.schema.createTable('imagines', table => {
     table.increments();
     table.integer('car_id');
     table.text("file_name");
@@ -13,5 +13,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTableIfExists('images');
+  return knex.schema.dropTableIfExists('imagines');
 };

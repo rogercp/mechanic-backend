@@ -83,8 +83,7 @@ const Image = require('../models/Image')
         try{
            
             const userimage = await Image.fetchUserImage(req.params.id);
-           
-
+            console.log(userimage,"userImage")
             res.status(200).json(userimage)
             
         }catch(err){
@@ -95,10 +94,11 @@ const Image = require('../models/Image')
     }
 
     static async createImage(req, res){
+        
         try{
             
             const userimage = await Image.createUserImage({
-                car_id:req.params.id,
+                user_id:req.params.id,
                 file_name:req.body.file_name
 
             });

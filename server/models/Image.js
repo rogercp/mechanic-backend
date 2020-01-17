@@ -17,13 +17,12 @@ const db = require("../../data/dbConfig");
   }
 
   static createFixImage(image) {
-    return db('images').insert(image)
+    return db('imagines').insert(image)
   }
 
   static createUserImage(image) {
-    return db('images').insert(image)
+    return db('imagines').insert(image)
   }
-
 
   static findByCarId(car_id) {
     return db("images")
@@ -31,12 +30,12 @@ const db = require("../../data/dbConfig");
   }
 
   static findByCarFixId(car_fix_id) {
-    return db("images")
+    return db("imagines")
       .where("car_fix_id", car_fix_id)
   }
 
   static fetchUserImage(user_id){
-    return db("images")
+    return db("imagines")
       .where("user_id", user_id)
   }
 
