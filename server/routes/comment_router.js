@@ -9,7 +9,7 @@ const require_body = require('../middleware/require_body');
 
 const router = express.Router()
 
-
+///->>/comment...
 
 router.route("/all")
     .get(CommentsController.allPostsComments)
@@ -29,4 +29,5 @@ router.route("/:id")
 router.route("/:id/dec")
     .patch(CommentsController.decrementLikes)
  
+
 module.exports = router

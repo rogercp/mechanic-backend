@@ -9,11 +9,11 @@ const require_body = require('../middleware/require_body');
 
 const router = express.Router()
 
+///->>/cars...
 
 router.route("/all")
     .all(restricted_access)
     .get(CarsController.all)
-
 
 
 router.route("/")

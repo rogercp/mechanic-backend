@@ -10,7 +10,7 @@ const require_body = require('../middleware/require_body');
 
 const router = express.Router()
 
-
+///->>/post...
 
 router.route("/all")
     .get(PostsController.allPosts)
