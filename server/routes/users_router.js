@@ -1,17 +1,11 @@
 'use strict'
 
-/**
- * Dependencies
- */
 
 const express = require('express');
 const UsersController = require('../controllers/UsersController');
 const restricted_access = require('../middleware/restricted_access');
 const require_body = require('../middleware/require_body');
 
-/**
- * Define router
- */
 
 const router = express.Router()
 
@@ -39,9 +33,5 @@ router.route('/image/:id')
   .post(UsersController.createImage)
 
 
-/*
-/**
- * Export router
- */
 
 module.exports = router

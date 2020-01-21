@@ -1,6 +1,3 @@
-/**
- * Dependencies
- */
 
 const admin = require('firebase-admin');
 
@@ -23,8 +20,5 @@ admin.initializeApp({credential:admin.credential.cert({
   
 })});
 
-/**
- * Export firebase client
- */
 
 module.exports = admin

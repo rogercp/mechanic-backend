@@ -1,8 +1,6 @@
 'use strict'
 
-/**
- * Define controller
- */
+
 const CarFix = require('../models/CarFix')
 const Car = require('../models/Car')
 

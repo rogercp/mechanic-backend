@@ -1,9 +1,7 @@
 'use strict'
 const Image = require('../models/Image')
 
-/**
- * Define controller
- */
+
 
 class ImagesController{
     static async index(req, res){
@@ -24,7 +22,6 @@ class ImagesController{
         try{
            
             const images = await Image.findByCarFixId(req.params.id);
-            console.log(images, "this is the image")
             res.status(200).json(images)
             
         }catch(err){
@@ -49,7 +46,6 @@ class ImagesController{
         }
     }
     static async createFixImage(req, res){
-        console.log(req.params, req.body, "this i the post for carfix image")
         try{
             
             const images = await Image.createFixImage({

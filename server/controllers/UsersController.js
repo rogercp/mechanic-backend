@@ -1,8 +1,6 @@
 'use strict'
 
-/**
- * Dependencies
- */
+
 
 const moment = require('moment')
 const User = require('../models/User')
@@ -83,7 +81,6 @@ const Image = require('../models/Image')
         try{
            
             const userimage = await Image.fetchUserImage(req.params.id);
-            console.log(userimage,"userImage")
             res.status(200).json(userimage)
             
         }catch(err){

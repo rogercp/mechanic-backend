@@ -1,24 +1,15 @@
 'use strict'
 
-/**
- * Dependencies
- */
 
 const express = require('express');
 const PostsController = require('../controllers/PostsController.js');
 const restricted_access = require('../middleware/restricted_access');
 const require_body = require('../middleware/require_body');
 
-/**
- * Define router
- */
+
 
 const router = express.Router()
 
-/**
- * Routes
- *   GET/POST
- */
 
 
 router.route("/all")
@@ -46,13 +37,5 @@ router.route("/:id/dec")
     .patch(PostsController.decrementLikes)
 
 
- /**
- * Routes
- *   DEL  
- */
-/*
-/**
- * Export router
- */
 
 module.exports = router

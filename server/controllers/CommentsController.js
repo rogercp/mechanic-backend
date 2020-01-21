@@ -2,9 +2,6 @@
 
 
 const Comment = require('../models/Comment')
-/**
- * Define controller
- */
 
 class CommentController{
 
