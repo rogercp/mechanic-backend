@@ -1,13 +1,8 @@
-/**
- * Dependencies
- */
+
 
 const firebase = require("../config/firebase");
 
 
-/**
- * Define middleware
- */
 
  function restricted_access(req,res,next){
     const token = req.get("Authorization") || req.body.token

@@ -1,25 +1,15 @@
 'use strict'
 
-/**
- * Dependencies
- */
+
 
 const express = require('express');
 const CommentsController = require('../controllers/CommentsController.js');
 const restricted_access = require('../middleware/restricted_access');
 const require_body = require('../middleware/require_body');
 
-/**
- * Define router
- */
-
 const router = express.Router()
 
-/**
- * Routes
- *   GET/POST
- */
-
+///->>/comment...
 
 router.route("/all")
     .get(CommentsController.allPostsComments)
@@ -38,13 +28,6 @@ router.route("/:id")
 
 router.route("/:id/dec")
     .patch(CommentsController.decrementLikes)
- /**
- * Routes
- *   DEL  
- */
-/*
-/**
- * Export router
- */
+ 
 
 module.exports = router

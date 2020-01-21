@@ -1,8 +1,6 @@
 'use strict'
 
-/**
- * Define controller
- */
+
 
 class RootController{
     static index(req, res){

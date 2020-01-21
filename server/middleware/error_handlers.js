@@ -1,8 +1,5 @@
 'use strict'
 
-/**
- * Define middleware
- */
 
  function not_found_catch(req,res,next){
 
@@ -26,8 +23,5 @@
     })
  }
 
- /**
- * Export middleware
- */
-
+ 
 module.exports = [not_found_catch, server_error_catch]

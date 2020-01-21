@@ -2,9 +2,7 @@
 
 
 const Car = require('../models/Car')
-/**
- * Define controller
- */
+
 
 class CarsController{
 

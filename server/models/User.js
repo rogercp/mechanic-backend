@@ -1,14 +1,10 @@
 'use strict'
 
-/**
- * Dependencies
- */
+
 
 const db = require('../../data/dbConfig')
 
-/**
- * Define model
- */
+
 
  class User{
 
@@ -44,6 +40,7 @@ const db = require('../../data/dbConfig')
     }
 
  }
+
 
  static async deactivate(email) {
     if (email) {
