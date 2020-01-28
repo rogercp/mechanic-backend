@@ -1,16 +1,18 @@
 
+'use strict'
+
 exports.up = function(knex) {
-    return knex.schema.createTable('users',users =>{
-        users.increments();
-        users
+    return knex.schema.createTable('users',table =>{
+        table.increments();
+        table
           .string('email',128)
           .notNullable()
           .unique();
-        users
+        table
           .string('uid')
           .notNullable()
           .unique();
-        users.text("user_name");
+        table.text("user_name");
         table.text("file_name");
     })
   };

@@ -1,5 +1,7 @@
 
 
+'use strict'
+
 exports.up = function(knex) {
     return knex.schema.createTable('user_cars',table =>{
         table.increments();
@@ -24,4 +26,3 @@ exports.up = function(knex) {
   exports.down = function(knex) {
     return knex.schema.dropTableIfExists('user_cars')
   };
-  
