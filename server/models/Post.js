@@ -6,6 +6,7 @@ const db = require('../../data/dbConfig')
  class Post{
 
     static async create(post_fields){
+      console.log(post_fields,"postfiels")
         if (
            process.env.NODE_ENV === "production" 
          ){
@@ -14,7 +15,7 @@ const db = require('../../data/dbConfig')
                 user_email: post_fields.email,   
                 user_name: post_fields.name, 
                 category: post_fields.category,
-                post_text: post_fields.post_text,               
+                post_text: post_fields.post_text,
               },
               ["id"]
             );
@@ -30,7 +31,6 @@ const db = require('../../data/dbConfig')
             user_name: post_fields.name, 
             category: post_fields.category,
             post_text: post_fields.post_text,  
-              
             });
       
             const new_car = await db("posts")

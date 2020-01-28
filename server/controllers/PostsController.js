@@ -31,10 +31,11 @@ class PostsController{
   }
  
     static async create(req, res) {
+      console.log(req.body,"body")
     
         try{
           
-          const post = await Post.create(req.body,req.params);
+          const post = await Post.create(req.body);
     
           res.status(201).json(post);
         }catch(err){
