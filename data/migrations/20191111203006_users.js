@@ -10,6 +10,8 @@ exports.up = function(knex) {
           .string('uid')
           .notNullable()
           .unique();
+        users.text("user_name");
+        table.text("file_name");
     })
   };
   
