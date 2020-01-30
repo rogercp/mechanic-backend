@@ -1,4 +1,6 @@
-const dbConnection = process.env.DATABASE_URL;
+
+
+  const dbConnection = process.env.DATABASE_URL;
 
 module.exports = {
   development: {
