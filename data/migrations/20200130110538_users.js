@@ -13,6 +13,8 @@ exports.up = function(knex) {
           .notNullable()
           .unique();
         table.text("user_name");
+        table.timestamps(true, true);
+
     })
   };
   
