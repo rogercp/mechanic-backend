@@ -13,7 +13,7 @@ exports.up = function(knex) {
       table.text('user_name');
       table.text('post_text');
       table.text('post_date');
-      table.text("file_name");
+      
 
     })
   };

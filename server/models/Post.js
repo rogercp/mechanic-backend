@@ -16,6 +16,7 @@ const db = require('../../data/dbConfig')
                 user_name: post_fields.name, 
                 category: post_fields.category,
                 post_text: post_fields.post_text,
+                post_date:post_fields.post_date
               },
               ["id"]
             );
@@ -30,7 +31,8 @@ const db = require('../../data/dbConfig')
             user_email: post_fields.email,   
             user_name: post_fields.name, 
             category: post_fields.category,
-            post_text: post_fields.post_text,  
+            post_text: post_fields.post_text,
+            post_date:post_fields.post_date  
             });
       
             const new_car = await db("posts")

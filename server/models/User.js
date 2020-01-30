@@ -42,10 +42,10 @@ const db = require('../../data/dbConfig')
  }
 
 
- static async deactivate(email) {
-    if (email) {
-      return db('users').where('email', email).update({ deactivated_at: new Date() })
-    }
+ static async deactivate(id,email) {
+
+      return await db("users").where({ id: id, email: email }).del()
+    
   }
 
 
