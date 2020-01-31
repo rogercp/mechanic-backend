@@ -8,7 +8,7 @@ const db = require("../../data/dbConfig");
  class Image {
  
   static create(image) {
-    return db('images').insert(image)
+    return db('imagines').insert(image)
   }
 
   static createFixImage(image) {
@@ -20,7 +20,7 @@ const db = require("../../data/dbConfig");
   }
 
   static findByCarId(car_id) {
-    return db("images")
+    return db("imagines")
       .where("car_id", car_id)
   }
 

@@ -28,7 +28,7 @@
     "firebase-admin": "^8.7.0",
     "gitignore": "^0.6.0",
     "helmet": "^3.21.2",
-    "knex": "^0.19.5",
+    "knex": "^0.20.8",
     "moment": "^2.24.0",
     "mongoose": "^5.7.7",
     "pg": "^7.12.1",

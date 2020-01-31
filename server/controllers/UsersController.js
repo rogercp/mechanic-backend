@@ -67,8 +67,9 @@ const Image = require('../models/Image')
     }
 
     static async deactivate(req, res) {
+        console.log(req.body,"body")
         try {
-          await User.deactivate(req.body.email)
+          await User.deactivate(req.body.id,req.body.email)
           res.status(200).json({ message: 'Successfully deactivated your account.' })
         } catch(err) {
           console.error(err)
@@ -104,6 +105,12 @@ const Image = require('../models/Image')
         }catch(err){
             res.status(500).json({error:{message:"Internal Service Error "}})
         }
+    }
+
+    static async deleteUserImage(req, res){
+       
+
+
     }
 
 

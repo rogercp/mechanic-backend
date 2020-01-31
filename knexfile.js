@@ -1,4 +1,6 @@
-const dbConnection = process.env.DATABASE_URL;
+
+
+  const dbConnection = process.env.DATABASE_URL;
 
 module.exports = {
   development: {
@@ -24,25 +26,4 @@ module.exports = {
       directory: './data/seeds',
     },
   },
-  staging: {
-    client: 'pg',
-    connection: dbConnection,
-    migrations: {
-      directory: './data/migrations',
-    },
-    seeds: {
-      directory: './data/seeds',
-    },
-  },
-  staging2: {
-    client: 'pg',
-    connection: dbConnection,
-    migrations: {
-      directory: './data/migrations',
-    },
-    seeds: {
-      directory: './data/seeds',
-    },
-  },
-};
-
+}
