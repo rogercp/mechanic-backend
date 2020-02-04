@@ -6,6 +6,7 @@ const firebase = require("../config/firebase");
 
  function restricted_access(req,res,next){
     const token = req.get("Authorization") || req.body.token
+    
 
     if (token){
         firebase.auth().verifyIdToken(token)

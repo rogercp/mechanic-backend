@@ -38,7 +38,6 @@ const Image = require('../models/Image')
 
     }
     static async auth(req,res){
-           
         try{
             
             const user = {
@@ -49,12 +48,10 @@ const Image = require('../models/Image')
             let foundUser = await User.getUserByEmail(user.email)
 
             if(foundUser){
-               
                 res.status(200).json(foundUser)
             }else{
                 
                 const id = await User.create(user)
-
                 foundUser = await User.getUserById(id)
                     
                 res.status(200).json(foundUser)

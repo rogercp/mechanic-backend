@@ -1,10 +1,6 @@
-
-'use strict'
-exports.up = async function(knex,Promise) {
-    await knex.schema.createTable("imagines",table =>{
+exports.up =  function(knex) {
+    return  knex.schema.createTable("imagines",table =>{
     table.increments()
-    .primary()
-    .unsigned();
     table.text("file_name");
     table.integer("car_id")
         .references("id")
@@ -31,7 +27,9 @@ exports.up = async function(knex,Promise) {
   
     })
   };
-  
-  exports.down = async function(knex,Promise) {
-    await knex.schema.dropTable("imagines")
-  };
+  exports.down = function(knex) {
+    return  knex.schema.dropTableIfExists("imagines")
+  }
+
+
+
