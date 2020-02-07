@@ -19,6 +19,7 @@ class CarsController{
   }
 
   static async index(req, res) {
+    
     try {
 
       const cars = await Car.all(req.body.email);
@@ -46,6 +47,7 @@ class CarsController{
 
 
   static async create(req, res) {
+    
     try {
       const new_car = await Car.create(req.body);
       

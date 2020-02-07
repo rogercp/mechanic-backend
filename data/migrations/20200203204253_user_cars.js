@@ -8,8 +8,8 @@ exports.up =  function(knex) {
               .inTable("users")
               .onDelete("CASCADE")
           table
-            .text("user_uid")
-              .references("id")
+            .text("user_email")
+              .references("email")
               .inTable("users")
               .onDelete("CASCADE");
           table
@@ -23,8 +23,6 @@ exports.up =  function(knex) {
           table
             .text("car_year") ;
           table.timestamps(true, true);
-    
-    
     
       })
     };
