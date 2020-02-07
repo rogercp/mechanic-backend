@@ -6,7 +6,6 @@ const db = require('../../data/dbConfig')
  class Post{
 
     static async create(post_fields){
-      console.log(post_fields,"postfiels")
         if (
            process.env.NODE_ENV === "production" 
          ){

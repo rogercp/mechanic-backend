@@ -9,6 +9,7 @@ exports.up =  function(knex) {
             .notNullable()
             .defaultsTo(0);
         table.text("category");
+        table.text("url");
         table.text("user_email")
           .references("email")
           .inTable("users")
@@ -17,8 +18,6 @@ exports.up =  function(knex) {
         table.text("post_text");
         table.text("post_date");
         table.timestamps(true, true);
-    
-    
     
       })
     };
