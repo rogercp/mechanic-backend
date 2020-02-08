@@ -32,7 +32,11 @@ router.route('/image/:id')
   .get(UsersController.indexImage)
   .all(require_body(["file_name"]))
   .post(UsersController.createImage)
+ 
 
+router.route('/imagee/:id')
+  .all(restricted_access)
+  .delete(UsersController.deleteUserImage)
 
 
 module.exports = router
