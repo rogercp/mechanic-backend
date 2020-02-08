@@ -89,9 +89,9 @@ const Image = require('../models/Image')
     }
 
     static async createImage(req, res){
-        
+
         try{
-            
+
             const userimage = await Image.createUserImage({
                 user_id:req.params.id,
                 file_name:req.body.file_name
@@ -104,9 +104,16 @@ const Image = require('../models/Image')
         }
     }
 
-    static async deleteUserImage(req, res){
-       
 
+    static async deleteUserImage(req, res){
+   
+        try {
+            await Image.deleteUserImage(req.params.id);
+      
+            return res.status(200).json({ message: "Successfully deleted image" });
+          } catch (err) {
+            return res.status(500).json({ error: { message: "Internal Server Error" } });
+          }
 
     }
 
