@@ -3,7 +3,7 @@ exports.up =  function(knex) {
     return  knex.schema.createTable("user_cars",table =>{
           table.increments()
           table
-              .text("user_id")
+              .integer("user_id")
               .references("id")
               .inTable("users")
               .onDelete("CASCADE")
