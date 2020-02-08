@@ -37,7 +37,6 @@ const db = require('../../data/dbConfig')
          const [ids] = await db("user_cars").insert(
             {
                user_email: car_fields.email,
-               user_uid: car_fields.uid,
                car_type: car_fields.car_type,
                car_make: car_fields.car_make,
                car_model: car_fields.car_model,
