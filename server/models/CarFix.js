@@ -35,7 +35,8 @@ const db = require('../../data/dbConfig')
                 fix: car_fields.fix,
                 fix_description: car_fields.fix_description,
                 fix_date: parseDate(car_fields.fix_date),
-                fix_price: car_fields.fix_price
+                fix_price: car_fields.fix_price,
+                fixed_by:car_field_fixed_by
                },
                ["id"]
              );
