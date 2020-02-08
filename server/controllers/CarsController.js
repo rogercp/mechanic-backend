@@ -22,6 +22,7 @@ class CarsController{
     
     try {
 
+      
       const cars = await Car.all(req.body.email);
 
       return res.status(200).json(cars);
