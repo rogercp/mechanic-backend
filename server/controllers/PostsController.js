@@ -19,9 +19,10 @@ class PostsController{
   }
 
   static async allPosts(req, res) {
+
     try {
       const posts = await Post.all();
-
+      console.log(posts,"posts")
       return res.status(200).json(posts);
     } catch (err) {
       return res
@@ -31,19 +32,16 @@ class PostsController{
   }
  
     static async create(req, res) {
-      console.log(req.body,"body")
     
         try{
-          
           const post = await Post.create(req.body);
-    
           res.status(201).json(post);
         }catch(err){
           return res
           .status(500)
           .json({ error: { message: "Internal Server Error" } });
         }
-        }
+      }
 
     static async delete(req, res) {
             try {
