@@ -22,8 +22,11 @@ class PostsController{
 
     try {
       const posts = await Post.all();
-      console.log(posts,"posts")
-      return res.status(200).json(posts);
+      const postsNoPics = await Post.allNoPics();
+
+     const concatPosts = posts.concat(postsNoPics);
+
+      return res.status(200).json(concatPosts);
     } catch (err) {
       return res
         .status(500)
@@ -32,9 +35,10 @@ class PostsController{
   }
  
     static async create(req, res) {
-    
+     
         try{
           const post = await Post.create(req.body);
+       
           res.status(201).json(post);
         }catch(err){
           return res

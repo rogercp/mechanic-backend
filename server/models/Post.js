@@ -12,8 +12,7 @@ const db = require('../../data/dbConfig')
            const [ids] = await db("posts").insert(
               {
                 user_id:post_fields.user_id,
-                user_email: post_fields.email,   
-                user_name: post_fields.name, 
+                user_name:post_fields.displayName,
                 category: post_fields.category,
                 post_text: post_fields.post_text,
                 post_date:post_fields.post_date
@@ -29,8 +28,7 @@ const db = require('../../data/dbConfig')
          }else{
            const [id] = await db("posts").insert({
             user_id:post_fields.user_id,
-            user_email: post_fields.email,   
-            user_name: post_fields.name, 
+            user_name:post_fields.displayName,
             category: post_fields.category,
             post_text: post_fields.post_text,
             post_date:post_fields.post_date  
@@ -62,9 +60,17 @@ const db = require('../../data/dbConfig')
 
      static async all(){
 
-      return db('posts').join('imagines','posts.user_id','=','imagines.user_id')
+        return db('posts').join('imagines','posts.user_id','=','imagines.user_id')
+     
+    }
 
-     }
+
+    static async allNoPics(){
+
+      return db('posts')
+    
+  }
+   
 
 
     static async increaseLikes(id){

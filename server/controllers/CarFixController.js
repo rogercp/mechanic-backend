@@ -23,7 +23,6 @@ class CarFixController{
       try{
         
         const car_fix = await CarFix.create(req.body,req.params);
-        console.log(car_fix,"body")
         res.status(201).json(car_fix);
       }catch(err){
         return res
