@@ -22,7 +22,7 @@ const db = require('../../data/dbConfig')
 
     static async create(user){
    
-   
+
     if(process.env.NODE_ENV == 'production'){
             
             const [ids] = await db('users').insert({

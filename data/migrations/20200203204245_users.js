@@ -13,7 +13,7 @@ exports.up =  function(knex) {
     users.text("user_name");
     users.timestamps(true, true);
   
-  
+
     })
   };
   

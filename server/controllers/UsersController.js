@@ -38,8 +38,8 @@ const Image = require('../models/Image')
 
     }
     static async auth(req,res){
+
         try{
-            
             const user = {
                 email:req.body.email,
                 uid:req.body.uid,
@@ -64,7 +64,6 @@ const Image = require('../models/Image')
     }
 
     static async deactivate(req, res) {
-        console.log(req.body,"body")
         try {
           await User.deactivate(req.body.id,req.body.email)
           res.status(200).json({ message: 'Successfully deactivated your account.' })

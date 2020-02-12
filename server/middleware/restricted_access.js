@@ -11,6 +11,7 @@ const firebase = require("../config/firebase");
     if (token){
         firebase.auth().verifyIdToken(token)
         .then(decodeToken =>{
+            
             req.body.email = decodeToken.email
             req.body.uid = decodeToken.uid
             next()
