@@ -3,7 +3,7 @@
 
 const Comment = require('../models/Comment')
 
-class CommentController{
+class CommentController {
 
 
   static async allPostsComments(req, res) {
@@ -14,62 +14,87 @@ class CommentController{
     } catch (err) {
       return res
         .status(500)
-        .json({ error: { message: "Internal Server Error" } });
+        .json({
+          error: {
+            message: "Internal Server Error"
+          }
+        });
     }
   }
- 
-    static async createComment(req, res) {
-    
-        try{
-          
-          const comment = await Comment.create(req.body,req.params);
-    
-          res.status(201).json(comment);
-        }catch(err){
-          return res
-          .status(500)
-          .json({ error: { message: "Internal Server Error" } });
-        }
-        }
 
-    static async deleteComment(req, res) {
-            try {
-              await Comment.delete(req.params.id, req.body.email);
-        
-              return res.status(200).json({ message: "Successfully deleted comment" });
-            } catch (err) {
-              return res.status(500).json({ error: { message: "Internal Server Error" } });
-            }
+  static async createComment(req, res) {
+console.log(req.body,req.params,"incoming")
+    try {
+
+      const comment = await Comment.create(req.body, req.params);
+
+      res.status(201).json(comment);
+    } catch (err) {
+      return res
+        .status(500)
+        .json({
+          error: {
+            message: "Internal Server Error"
           }
+        });
+    }
+  }
+
+  static async deleteComment(req, res) {
+    try {
+      await Comment.delete(req.params.id, req.body.email);
+
+      return res.status(200).json({
+        message: "Successfully deleted comment"
+      });
+    } catch (err) {
+      return res.status(500).json({
+        error: {
+          message: "Internal Server Error"
+        }
+      });
+    }
+  }
 
 
-    static async incrementLikes(req, res) {
-            try {
-       
-            await Comment.increaseLikes(req.params.id);
-        
-              return res.status(200).json({ message: "Successfully incremented likes on post" });
-            } catch (err) {
-              return res.status(500).json({ error: { message: "Internal Server Error" } });
-            }
-          } 
-    
-    static async decrementLikes(req, res) {
-            try {
-       
-            await Comment.decreaseLikes(req.params.id);
-        
-              return res.status(200).json({ message: "Successfully decremented likes on post" });
-            } catch (err) {
-              return res.status(500).json({ error: { message: "Internal Server Error" } });
-            }
-          }
+  static async incrementLikes(req, res) {
+    try {
+
+      await Comment.increaseLikes(req.params.id);
+
+      return res.status(200).json({
+        message: "Successfully incremented likes on post"
+      });
+    } catch (err) {
+      return res.status(500).json({
+        error: {
+          message: "Internal Server Error"
+        }
+      });
+    }
+  }
+
+  static async decrementLikes(req, res) {
+    try {
+
+      await Comment.decreaseLikes(req.params.id);
+
+      return res.status(200).json({
+        message: "Successfully decremented likes on post"
+      });
+    } catch (err) {
+      return res.status(500).json({
+        error: {
+          message: "Internal Server Error"
+        }
+      });
+    }
+  }
 
 }
-  
-  /**
-   * Export controller
-   */
 
-   module.exports = CommentController
-  
+/**
+ * Export controller
+ */
+
+module.exports = CommentController

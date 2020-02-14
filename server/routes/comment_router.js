@@ -11,10 +11,10 @@ const router = express.Router()
 
 ///->>/comment...
 
-router.route("/all")
+router.route("/:id")
     .get(CommentsController.allPostsComments)
 
-router.route("/")
+router.route("/:id")
     .all(restricted_access)
     .post(CommentsController.createComment)
     .all(require_body(["comment_text"]))
@@ -23,7 +23,7 @@ router.route("/:id")
     .all(restricted_access)
     .delete(CommentsController.deleteComment)
 
-    router.route("/:id/inc")
+router.route("/:id/inc")
     .patch(CommentsController.incrementLikes)
 
 router.route("/:id/dec")
