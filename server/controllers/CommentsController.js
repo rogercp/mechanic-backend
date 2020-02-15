@@ -9,7 +9,7 @@ class CommentController {
   static async allPostsComments(req, res) {
     try {
       const comments = await Comment.getAllPostComments(req.params);
-
+console.log(req.params,"commetns seding ")
       return res.status(200).json(comments);
     } catch (err) {
       return res

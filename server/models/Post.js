@@ -67,7 +67,7 @@ const db = require('../../data/dbConfig')
 
     static async allNoPics(){
 
-      return db('posts').join()
+      return db('posts')
     
   }
    

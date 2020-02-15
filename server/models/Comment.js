@@ -15,8 +15,6 @@ const db = require('../../data/dbConfig')
            const [ids] = await db("comments").insert(
               {
                 user_id:comment_fields.user_id,  
-                user_email: comment_fields.email,   
-                user_name: comment_fields.name, 
                 comment_text: comment_fields.comment_text,  
                 post_id:param_field.id     
               },
@@ -31,8 +29,6 @@ const db = require('../../data/dbConfig')
          }else{
            const [id] = await db("comments").insert({
                 user_id:comment_fields.user_id,  
-                user_email: comment_fields.email,   
-                user_name: comment_fields.name, 
                 comment_text: comment_fields.comment_text, 
                 post_id:param_field.id    
             });
