@@ -8,15 +8,15 @@ const db = require('../../data/dbConfig')
 
  class Comment{
 
-    static async create(comment_fields){
+    static async create(comment_fields,param_field){
         if (
            process.env.NODE_ENV === "production" 
          ){
            const [ids] = await db("comments").insert(
               {
-                user_email: comment_fields.email,   
-                user_name: comment_fields.name, 
-                comment_text: comment_fields.comment_text,       
+                user_id:comment_fields.user_id,  
+                comment_text: comment_fields.comment_text,  
+                post_id:param_field.id     
               },
               ["id"]
             );
@@ -28,10 +28,9 @@ const db = require('../../data/dbConfig')
             return new_car;
          }else{
            const [id] = await db("comments").insert({
-                user_email: comment_fields.email,   
-                user_name: comment_fields.name, 
+                user_id:comment_fields.user_id,  
                 comment_text: comment_fields.comment_text, 
-              
+                post_id:param_field.id    
             });
       
             const new_car = await db("comments")
