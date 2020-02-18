@@ -130,9 +130,9 @@ class UsersController {
 
 
     static async deleteUserImage(req, res) {
-
+        console.log(req.params,"thos sisdfsdf")
         try {
-            await Image.deleteUserImage(req.params.id);
+            await User.deleteUserImage(req.params.id);
 
             return res.status(200).json({
                 message: "Successfully deleted image"

@@ -58,18 +58,18 @@ const db = require('../../data/dbConfig')
       
      }
 
-    //  static async all(){
+     static async all(){
 
-    //     return db('posts').join('imagines','posts.user_id','=','imagines.user_id')
+        return db('posts').join('users','posts.user_id','=','users.id')
      
-    // }
+    }
 
 
-    static async all(){
+  //  static async all(){
 
-      return db('posts')
+  //     return db('posts')
     
-  }
+  // }
    
 
 

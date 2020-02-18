@@ -54,10 +54,11 @@ const db = require('../../data/dbConfig')
   }
 
 
-//   static deleteUserImage(id){
-//     return db("users")
-//       .where("id", id).del()
-//   }
+  static deleteUserImage(id){
+      console.log(id)
+    return db("users")
+      .where("file_name_profile", id).del()
+  }
 
  static async deactivate(id,email) {
 

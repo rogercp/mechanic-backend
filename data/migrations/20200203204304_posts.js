@@ -17,7 +17,10 @@ exports.up =  function(knex) {
         table.text("post_text");
         table.text("post_date");
         table.timestamps(true, true);
-        table.text("user_file_name");
+        table.text("user_file_name")
+          .references("file_name_profile")
+          .inTable("users")
+          .onDelete("CASCADE");
       })
     };
     
