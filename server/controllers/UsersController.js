@@ -93,7 +93,6 @@ class UsersController {
 
 
     static async indexImage(req, res) {
-        console.log(req.params,"params")
         try {
 
             const userimage = await User.fetchUserImage(req.params.id);
@@ -111,7 +110,6 @@ class UsersController {
     }
 
     static async createImage(req, res) {
-            console.log(req.params,"bodysdfs")
         try {
             const userimage = await User.createUserImage({
                 'file_name_profile': req.body.file_name,
@@ -130,7 +128,6 @@ class UsersController {
 
 
     static async deleteUserImage(req, res) {
-        console.log(req.params,"thos sisdfsdf")
         try {
             await User.deleteUserImage(req.params.id);
 

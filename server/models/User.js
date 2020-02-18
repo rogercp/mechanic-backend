@@ -55,7 +55,6 @@ const db = require('../../data/dbConfig')
 
 
   static deleteUserImage(id){
-      console.log(id)
     return db("users")
       .where("file_name_profile", id).del()
   }

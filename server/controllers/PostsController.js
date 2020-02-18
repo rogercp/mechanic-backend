@@ -2,6 +2,7 @@
 
 
 const Post = require('../models/Post')
+const Pagination = require('../middleware/Pagination');
 
 class PostsController {
 
@@ -10,7 +11,10 @@ class PostsController {
     try {
       const posts = await Post.allUserPosts(req.body.email);
 
+      
       return res.status(200).json(posts);
+
+      return posts;
     } catch (err) {
       return res
         .status(500)
@@ -25,10 +29,9 @@ class PostsController {
   static async allPosts(req, res) {
 
     try {
-      const posts = await Post.all();
-     
+    const posts = await Post.all();
       
-      return res.status(200).json(posts);
+    return res.status(200).json(posts);
     } catch (err) {
       return res
         .status(500)
@@ -76,6 +79,7 @@ class PostsController {
 
 
   static async incrementLikes(req, res) {
+    console.log(req.params,"parameters for like")
     try {
 
       await Post.increaseLikes(req.params.id);
@@ -93,6 +97,7 @@ class PostsController {
   }
 
   static async decrementLikes(req, res) {
+    console.log(req.params,"parameters for dislike")
     try {
 
       await Post.decreaseLikes(req.params.id);

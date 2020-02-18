@@ -8,6 +8,7 @@ const db = require('../../data/dbConfig')
  class Comment{
 
     static async create(comment_fields,param_field){
+      console.log(comment_fields,param_field,"commentfields")
         if (
            process.env.NODE_ENV === "production" 
          ){
