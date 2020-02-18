@@ -15,9 +15,9 @@ const db = require("../../data/dbConfig");
     return db('imagines').insert(image)
   }
 
-  static createUserImage(image) {
-    return db('imagines').insert(image)
-  }
+  // static createUserImage(image) {
+  //   return db('imagines').insert(image)
+  // }
 
   static findByCarId(car_id) {
     return db("imagines")
@@ -29,14 +29,14 @@ const db = require("../../data/dbConfig");
       .where("car_fix_id", car_fix_id)
   }
 
-  static fetchUserImage(user_id){
-    return db("imagines")
-      .where("user_id", user_id)
-  }
-  static deleteUserImage(id){
-    return db("imagines")
-      .where("id", id).del()
-  }
+  // static fetchUserImage(user_id){
+  //   return db("imagines")
+  //     .where("user_id", user_id)
+  // }
+  // static deleteUserImage(id){
+  //   return db("imagines")
+  //     .where("id", id).del()
+  // }
 
   static async checkIfImageExistsForUser(){
 

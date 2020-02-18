@@ -41,6 +41,23 @@ const db = require('../../data/dbConfig')
 
  }
 
+ static createUserImage(update,id) {
+
+    let paramX = parseInt(id)
+    return  db('users').where("id",paramX).update(update)
+    
+  }
+
+  static fetchUserImage(user_id){
+    return db("users")
+      .where("id", user_id)
+  }
+
+
+//   static deleteUserImage(id){
+//     return db("users")
+//       .where("id", id).del()
+//   }
 
  static async deactivate(id,email) {
 

@@ -11,6 +11,7 @@ exports.up =  function(knex) {
       .notNullable()
       .unique();
     users.text("user_name");
+    users.string("file_name_profile");
     users.timestamps(true, true);
   
 

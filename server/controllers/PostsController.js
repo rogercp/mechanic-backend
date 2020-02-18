@@ -26,11 +26,11 @@ class PostsController {
 
     try {
       const posts = await Post.all();
-      const postsNoPics = await Post.allNoPics();
+      // const postsNoPics = await Post.allNoPics();
 
-      const concatPosts = posts.concat(postsNoPics);
+      // const concatPosts = posts.concat(postsNoPics);
 
-      return res.status(200).json(concatPosts);
+      return res.status(200).json(posts);
     } catch (err) {
       return res
         .status(500)

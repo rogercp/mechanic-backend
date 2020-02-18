@@ -93,9 +93,10 @@ class UsersController {
 
 
     static async indexImage(req, res) {
+        console.log(req.params,"params")
         try {
 
-            const userimage = await Image.fetchUserImage(req.params.id);
+            const userimage = await User.fetchUserImage(req.params.id);
             res.status(200).json(userimage)
 
         } catch (err) {
@@ -110,14 +111,12 @@ class UsersController {
     }
 
     static async createImage(req, res) {
-
+            console.log(req.params,"bodysdfs")
         try {
-
-            const userimage = await Image.createUserImage({
-                user_id: req.params.id,
-                file_name: req.body.file_name
-
-            });
+            const userimage = await User.createUserImage({
+                'file_name_profile': req.body.file_name,
+              },req.params.id);
+              
             res.status(201).json(userimage)
 
         } catch (err) {
