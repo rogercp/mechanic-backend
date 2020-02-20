@@ -23,11 +23,13 @@ router.route("/:id")
     .all(restricted_access)
     .delete(CommentsController.deleteComment)
 
-router.route("/:id/inc")
+router.route("/inc/:id")
+    .all(restricted_access)
     .patch(CommentsController.incrementLikes)
 
-router.route("/:id/dec")
+router.route("/dec/:id")
+    .all(restricted_access)
     .patch(CommentsController.decrementLikes)
- 
+
 
 module.exports = router
