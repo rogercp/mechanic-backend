@@ -43,6 +43,35 @@ class PostsController {
     }
   }
 
+
+  static async filterPosts(req, res) {
+console.log(req.body,"firstgit")
+    try {
+
+    const posts = await Post.all();
+
+    const filterTerm = req.body.searchTerm
+
+    const filteredPosts=posts.filter((post)=>{
+      if(post.post_text.includes(filterTerm))
+      return post;
+    
+    })
+      
+    return res.status(200).json(filteredPosts);
+    } catch (err) {
+      return res
+        .status(500)
+        .json({
+          error: {
+            message: "Internal Server Error"
+          }
+        });
+    }
+  }
+
+
+
   static async create(req, res) {
 
     try {

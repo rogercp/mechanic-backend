@@ -36,6 +36,12 @@ router.route("/dec/:id")
     .all(restricted_access)
     .patch(PostsController.decrementLikes)
 
+router.route("/search")
+    .post(PostsController.filterPosts)
+    
+    
+
+
 
 
 module.exports = router
