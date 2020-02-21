@@ -2,6 +2,7 @@
 
 
 const Post = require('../models/Post')
+const Pagination = require('../middleware/Pagination');
 
 class PostsController {
 
@@ -10,7 +11,10 @@ class PostsController {
     try {
       const posts = await Post.allUserPosts(req.body.email);
 
+      
       return res.status(200).json(posts);
+
+      return posts;
     } catch (err) {
       return res
         .status(500)
@@ -25,12 +29,9 @@ class PostsController {
   static async allPosts(req, res) {
 
     try {
-      const posts = await Post.all();
-      const postsNoPics = await Post.allNoPics();
-
-      const concatPosts = posts.concat(postsNoPics);
-
-      return res.status(200).json(concatPosts);
+    const posts = await Post.all();
+      
+    return res.status(200).json(posts);
     } catch (err) {
       return res
         .status(500)
@@ -41,6 +42,35 @@ class PostsController {
         });
     }
   }
+
+
+  static async filterPosts(req, res) {
+console.log(req.body,"firstgit")
+    try {
+
+    const posts = await Post.all();
+
+    const filterTerm = req.body.searchTerm
+
+    const filteredPosts=posts.filter((post)=>{
+      if(post.post_text.includes(filterTerm))
+      return post;
+    
+    })
+      
+    return res.status(200).json(filteredPosts);
+    } catch (err) {
+      return res
+        .status(500)
+        .json({
+          error: {
+            message: "Internal Server Error"
+          }
+        });
+    }
+  }
+
+
 
   static async create(req, res) {
 
@@ -78,6 +108,7 @@ class PostsController {
 
 
   static async incrementLikes(req, res) {
+    console.log(req.params,"parameters for like")
     try {
 
       await Post.increaseLikes(req.params.id);
@@ -95,6 +126,7 @@ class PostsController {
   }
 
   static async decrementLikes(req, res) {
+    console.log(req.params,"parameters for dislike")
     try {
 
       await Post.decreaseLikes(req.params.id);

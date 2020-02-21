@@ -95,7 +95,7 @@ class UsersController {
     static async indexImage(req, res) {
         try {
 
-            const userimage = await Image.fetchUserImage(req.params.id);
+            const userimage = await User.fetchUserImage(req.params.id);
             res.status(200).json(userimage)
 
         } catch (err) {
@@ -110,14 +110,11 @@ class UsersController {
     }
 
     static async createImage(req, res) {
-
         try {
-
-            const userimage = await Image.createUserImage({
-                user_id: req.params.id,
-                file_name: req.body.file_name
-
-            });
+            const userimage = await User.createUserImage({
+                'file_name_profile': req.body.file_name,
+              },req.params.id);
+              
             res.status(201).json(userimage)
 
         } catch (err) {
@@ -131,9 +128,8 @@ class UsersController {
 
 
     static async deleteUserImage(req, res) {
-
         try {
-            await Image.deleteUserImage(req.params.id);
+            await User.deleteUserImage(req.params.id);
 
             return res.status(200).json({
                 message: "Successfully deleted image"

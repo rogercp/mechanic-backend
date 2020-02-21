@@ -28,13 +28,19 @@ router.route("/:id")
     .all(restricted_access)
     .delete(PostsController.delete)
 
-router.route("/:id/inc")
+router.route("/inc/:id")
     .all(restricted_access)
     .patch(PostsController.incrementLikes)
 
-router.route("/:id/dec")
+router.route("/dec/:id")
     .all(restricted_access)
     .patch(PostsController.decrementLikes)
+
+router.route("/search")
+    .post(PostsController.filterPosts)
+    
+    
+
 
 
 
