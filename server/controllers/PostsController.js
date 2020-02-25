@@ -30,7 +30,6 @@ class PostsController {
 
     try {
     const posts = await Post.all();
-      console.log(posts,"posts")
     return res.status(200).json(posts);
     } catch (err) {
       return res
