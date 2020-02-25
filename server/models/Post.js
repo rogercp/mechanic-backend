@@ -59,18 +59,22 @@ const db = require('../../data/dbConfig')
       
      }
 
-     static async all(){
+    //  static async all(){
 
-        return db('posts')
+    //     return db('posts')
      
-    }
+    // }
 
 
-  //  static async all(){
+   static async all(){
 
-  //     return db('posts')
+      return db.raw(`
+      
+      select * FROM posts INNER JOIN users ON posts.user_id = users.id
+
+      `)
     
-  // }
+  }
    
 
 
