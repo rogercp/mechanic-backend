@@ -74,7 +74,17 @@ const db = require('../../data/dbConfig')
     
   }
    
+  
 
+//   static async filterByCategory(){
+
+//     return db.raw(`
+    
+//     select * FROM posts INNER JOIN users ON posts.user_id = users.id WHERE 
+
+//     `)
+  
+// }
 
     static async increaseLikes(id){
         return db('posts')

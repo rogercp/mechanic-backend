@@ -39,6 +39,9 @@ router.route("/dec/:id")
 router.route("/search")
     .post(PostsController.filterPosts)
     
+router.route("/filterCategory")
+    .post(PostsController.filterByCategory)
+    
     
 
 
