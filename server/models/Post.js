@@ -6,7 +6,6 @@ const db = require('../../data/dbConfig')
  class Post{
 
     static async create(post_fields){
-      console.log(post_fields,"post fielsd")
         if (
            process.env.NODE_ENV === "production" 
          ){
@@ -94,7 +93,6 @@ const db = require('../../data/dbConfig')
         }
 
     static async decreaseLikes(id){
-      console.log('hitting decrese')
         return db('posts')
             .where("id", id) 
             .decrement('like', 1)

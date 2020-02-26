@@ -50,7 +50,7 @@ class PostsController {
 
     const posts = await Post.all();
 
-    const filterTerm = req.body.category
+    const filterTerm = req.body.searchTerm
 
     const filteredPosts=posts.filter((post)=>{
       if(post.post_text.includes(filterTerm))
@@ -74,19 +74,24 @@ class PostsController {
 
 
   static async filterByCategory(req, res) {
-    
+    console.log(req.body)
     try {
 
     const posts = await Post.all();
 
     const filterTerm = req.body.category
+    if(filterTerm === "AllPosts"){
+      return res.status(200).json(posts);
+    }else{
+      const filteredCategoryPosts= posts.filter((post)=>{
+        if(post.category === filterTerm)
+        return post;
+      })
+    
    
-    const filteredCategoryPosts= posts.filter((post)=>{
-      if(post.category === filterTerm)
-      return post;
-    })
-    console.log(filteredCategoryPosts)
     return res.status(200).json(filteredCategoryPosts);
+    }
+      
     } catch (err) {
       return res
         .status(500)
