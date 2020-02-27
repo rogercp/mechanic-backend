@@ -74,7 +74,6 @@ class PostsController {
 
 
   static async filterByCategory(req, res) {
-    console.log(req.body)
     try {
 
     const posts = await Post.all();
@@ -87,7 +86,7 @@ class PostsController {
         if(post.category === filterTerm)
         return post;
       })
-    
+    console.log(filteredCategoryPosts,"filtered")
    
     return res.status(200).json(filteredCategoryPosts);
     }
