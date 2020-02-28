@@ -6,14 +6,12 @@ const db = require('../../data/dbConfig')
  class Post{
 
     static async create(post_fields){
-      console.log(post_fields,"post fielsd")
         if (
            process.env.NODE_ENV === "production" 
          ){
            const [ids] = await db("posts").insert(
               {
                 user_id:post_fields.user_id,
-                user_name:post_fields.displayName,
                 category: post_fields.category,
                 post_text: post_fields.post_text,
                 post_date:post_fields.post_date
@@ -29,7 +27,6 @@ const db = require('../../data/dbConfig')
          }else{
            const [id] = await db("posts").insert({
             user_id:post_fields.user_id,
-            user_name:post_fields.displayName,
             category: post_fields.category,
             post_text: post_fields.post_text,
             post_date:post_fields.post_date  
@@ -59,20 +56,34 @@ const db = require('../../data/dbConfig')
       
      }
 
-     static async all(){
+    //  static async all(){
 
-        return db('posts')
+    //     return db('posts')
      
-    }
+    // }
 
 
-  //  static async all(){
+   static async all(){
 
-  //     return db('posts')
+      return db.raw(`
+      
+      select * FROM posts INNER JOIN users ON posts.user_id = users.id
+
+      `)
     
-  // }
+  }
    
+  
 
+//   static async filterByCategory(){
+
+//     return db.raw(`
+    
+//     select * FROM posts INNER JOIN users ON posts.user_id = users.id WHERE 
+
+//     `)
+  
+// }
 
     static async increaseLikes(id){
         return db('posts')
@@ -82,7 +93,6 @@ const db = require('../../data/dbConfig')
         }
 
     static async decreaseLikes(id){
-      console.log('hitting decrese')
         return db('posts')
             .where("id", id) 
             .decrement('like', 1)

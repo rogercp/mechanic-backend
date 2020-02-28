@@ -64,8 +64,14 @@ const db = require('../../data/dbConfig')
       return await db("users").where({ id: id, email: email }).del()
     
   }
+  
 
 
+  static updateUserName(update,id) {
+
+    return  db('users').where("id",id).update(update)
+    
+  }
 
  }
  /**

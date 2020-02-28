@@ -30,7 +30,7 @@ class PostsController {
 
     try {
     const posts = await Post.all();
-      
+
     return res.status(200).json(posts);
     } catch (err) {
       return res
@@ -45,7 +45,7 @@ class PostsController {
 
 
   static async filterPosts(req, res) {
-console.log(req.body,"firstgit")
+   
     try {
 
     const posts = await Post.all();
@@ -70,7 +70,37 @@ console.log(req.body,"firstgit")
     }
   }
 
+  
 
+
+  static async filterByCategory(req, res) {
+    try {
+
+    const posts = await Post.all();
+
+    const filterTerm = req.body.category
+    if(filterTerm === "AllPosts"){
+      return res.status(200).json(posts);
+    }else{
+      const filteredCategoryPosts= posts.filter((post)=>{
+        if(post.category === filterTerm)
+        return post;
+      })
+    console.log(filteredCategoryPosts,"filtered")
+   
+    return res.status(200).json(filteredCategoryPosts);
+    }
+      
+    } catch (err) {
+      return res
+        .status(500)
+        .json({
+          error: {
+            message: "Internal Server Error"
+          }
+        });
+    }
+  }
 
   static async create(req, res) {
 
