@@ -15,6 +15,12 @@ const router = express.Router()
 router.route("/all")
     .get(PostsController.allPosts)
 
+router.route("/search")
+    .post(PostsController.filterPosts)
+    
+router.route("/filterCategory")
+    .post(PostsController.filterByCategory)
+    
 router.route("/")
     .all(restricted_access)
     .get(PostsController.allUserPosts)
@@ -36,12 +42,7 @@ router.route("/dec/:id")
     .all(restricted_access)
     .patch(PostsController.decrementLikes)
 
-router.route("/search")
-    .post(PostsController.filterPosts)
-    
-router.route("/filterCategory")
-    .post(PostsController.filterByCategory)
-    
+
     
 
 
