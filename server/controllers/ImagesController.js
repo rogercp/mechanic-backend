@@ -20,7 +20,6 @@ class ImagesController {
             })
         }
 
-
     }
     static async indexFixImage(req, res) {
         try {
