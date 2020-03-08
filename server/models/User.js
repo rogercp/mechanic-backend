@@ -75,16 +75,15 @@ const db = require('../../data/dbConfig')
 
 
   static updateUserNameInitially(update,id){
-console.log('hitting updateUserNameInitially')
     return  db('users').where("id",id).andWhere("UserNameFlagFLipped",false).update(update)
 
   }
 
   static updateFlagForUser(update,id){
-    console.log('hitting   static updateFlagForUser')
     return  db('users').where("id",id).update(update)
 
   }
+
 
  }
  /**
