@@ -13,7 +13,8 @@ exports.up =  function(knex) {
     users.text("user_name");
     users.string("file_name_profile");
     users.timestamps(true, true);
-  
+    users.string("UserNameFlagFLipped")
+      .defaultTo(false);
 
     })
   };

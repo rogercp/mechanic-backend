@@ -30,6 +30,11 @@ router.route('/deactivate')
  .all(restricted_access)
  .put(UsersController.updateUserName)
 
+ router.route('/updateinitially/:id')
+ .all(restricted_access)
+ .post(UsersController.updateUserNameInitially)
+
+
 router.route('/image/:id')
   .all(restricted_access)
   .get(UsersController.indexImage)
