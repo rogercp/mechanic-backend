@@ -73,6 +73,18 @@ const db = require('../../data/dbConfig')
     
   }
 
+
+  static updateUserNameInitially(update,id){
+    return  db('users').where("id",id).andWhere("UserNameFlagFLipped",false).update(update)
+
+  }
+
+  static updateFlagForUser(update,id){
+    return  db('users').where("id",id).update(update)
+
+  }
+
+
  }
  /**
  * Export model

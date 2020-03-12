@@ -110,6 +110,48 @@ class UsersController {
         }
     }
 
+    
+   static async getUserName (req,res){
+       
+    try {
+       const username = await User.getUserById(req.params.id)
+
+        res.status(200).json(username.user_name)
+
+    } catch (err) {
+        console.error(err)
+        res.status(500).json({
+            error: {
+                message: 'Internal Server Error'
+            }
+        })
+    }
+
+
+    }
+
+
+    static async updateUserNameInitially(req, res) {
+        try {
+            await User.updateUserNameInitially({
+                'user_name':req.body.user_name
+            },req.params.id)
+
+            await User.updateFlagForUser({'UserNameFlagFLipped':true},req.params.id)
+
+            res.status(200).json({
+                message: 'Successfully updated your username initially.'
+            })
+        } catch (err) {
+            console.error(err)
+            res.status(500).json({
+                error: {
+                    message: 'Internal Server Error'
+                }
+            })
+        }
+    }
+
 
     static async indexImage(req, res) {
         try {
