@@ -29,4 +29,4 @@ coverage
 *.sqlite3
 *.sqlite3-journal
 *.db3
-sendgrid.env
+
