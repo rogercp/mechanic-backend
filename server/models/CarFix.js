@@ -68,6 +68,12 @@ const db = require('../../data/dbConfig')
       return await db("car_fix").where({ id: id}).del()
     }
 
+
+  static updateCarFix(update,id) {
+
+    return  db('users').where("id",id).update(update)
+    
+  }
  }
 
 
