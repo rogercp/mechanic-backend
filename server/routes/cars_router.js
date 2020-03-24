@@ -28,7 +28,9 @@ router.route("/:id")
 .get(CarsController.indexById)
 .delete(CarsController.delete)
 
-
+router.route('/update/:id')
+.all(restricted_access)
+.put(CarsController.updateCar)
 
  router.route("/:id/images")
   .all(restricted_access)

@@ -91,6 +91,34 @@ class CarsController {
       });
     }
   }
+
+
+  static async updateCar(req, res) {
+    try {
+        await User.updateCar({
+         "car_type":req.body.car_type,
+       "car_make":req.body.car_make,
+        "car_model":req.body.car_model,
+          "car_nickname":req.body.car_nickname,
+          "car_year":req.body.car_year
+          
+        },req.params.id)
+
+        res.status(200).json({
+            message: 'Successfully updated your username.'
+        })
+    } catch (err) {
+        console.error(err)
+        res.status(500).json({
+            error: {
+                message: 'Internal Server Error'
+            }
+        })
+    }
+}
+
+
+
 }
 
 /**
