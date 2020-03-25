@@ -94,9 +94,10 @@ class CarsController {
 
 
   static async updateCar(req, res) {
+    console.log(req.body,req.params,"this is the update car")
+
     try {
-        await User.updateCar({
-         "car_type":req.body.car_type,
+        await Car.updateCar({
        "car_make":req.body.car_make,
         "car_model":req.body.car_model,
           "car_nickname":req.body.car_nickname,

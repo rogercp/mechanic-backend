@@ -62,8 +62,9 @@ class CarFixController {
 
   
   static async updateCarFix(req, res) {
+    console.log(req.body,req.params,"this is the update carFix")
     try {
-        await User.updateCarFix({
+        await CarFix.updateCarFix({
         
         "fix_not_maintenence":req.body.fix_not_maintenence,
         "fix":req.body.car_make.fix,

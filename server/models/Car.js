@@ -76,7 +76,7 @@ const db = require('../../data/dbConfig')
 
   static updateCar(update,id) {
 
-   return  db('users').where("id",id).update(update)
+   return  db('user_cars').where("id",id).update(update)
    
  }
 
