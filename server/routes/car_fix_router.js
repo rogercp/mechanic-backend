@@ -25,8 +25,8 @@ router.route("/:id")
     .delete(CarFixController.delete)
 
 router.route('/update/:id')
-.all(restricted_access)
-.put(CarFixController.updateCarFix)
+    .all(restricted_access)
+    .put(CarFixController.updateCarFix)
 
 
 router.route("/:id/car_fix_images")

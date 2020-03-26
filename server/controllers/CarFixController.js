@@ -24,6 +24,9 @@ class CarFixController {
 
 
   static async create(req, res) {
+
+   
+
     try {
 
       const car_fix = await CarFix.create(req.body, req.params);
@@ -62,16 +65,18 @@ class CarFixController {
 
   
   static async updateCarFix(req, res) {
+    function parseDate(date){
+      var m = date.split(",")[0]
+      return m
+    }
     console.log(req.body,req.params,"this is the update carFix")
     try {
         await CarFix.updateCarFix({
         
-        "fix_not_maintenence":req.body.fix_not_maintenence,
-        "fix":req.body.car_make.fix,
+        "fix":req.body.fix,
         "fix_description":req.body.fix_description,
-        "fix_date":req.body.fix_date,
+        "fix_date":parseDate(req.body.fix_date),
         "fix_price":req.body.fix_price,
-        "fixed_by":req.body.fixed_by,
           
         },req.params.id)
 
