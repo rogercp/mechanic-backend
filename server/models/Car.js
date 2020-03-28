@@ -80,6 +80,20 @@ const db = require('../../data/dbConfig')
    
  }
 
+
+//  static async example(){
+//    return db('user_cars')
+//        .where("id", 1) 
+//        .insert(
+//          {
+//             car_type: "this is the second one",
+      
+//          },
+//        )
+//    }
+//    example()
+
+
    
  }
 
