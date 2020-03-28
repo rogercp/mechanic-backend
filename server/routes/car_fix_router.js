@@ -24,6 +24,10 @@ router.route("/:id")
     .post(CarFixController.create)
     .delete(CarFixController.delete)
 
+router.route('/update/:id')
+    .all(restricted_access)
+    .put(CarFixController.updateCarFix)
+
 
 router.route("/:id/car_fix_images")
     .all(restricted_access)

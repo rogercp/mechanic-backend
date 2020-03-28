@@ -24,6 +24,9 @@ class CarFixController {
 
 
   static async create(req, res) {
+
+   
+
     try {
 
       const car_fix = await CarFix.create(req.body, req.params);
@@ -59,6 +62,36 @@ class CarFixController {
       });
     }
   }
+
+  
+  static async updateCarFix(req, res) {
+    function parseDate(date){
+      var m = date.split(",")[0]
+      return m
+    }
+    console.log(req.body,req.params,"this is the update carFix")
+    try {
+        await CarFix.updateCarFix({
+        
+        "fix":req.body.fix,
+        "fix_description":req.body.fix_description,
+        "fix_date":parseDate(req.body.fix_date),
+        "fix_price":req.body.fix_price,
+          
+        },req.params.id)
+
+        res.status(200).json({
+            message: 'Successfully updated your username.'
+        })
+    } catch (err) {
+        console.error(err)
+        res.status(500).json({
+            error: {
+                message: 'Internal Server Error'
+            }
+        })
+    }
+}
 
 }
 
