@@ -94,7 +94,7 @@ class ImagesController {
         try {
 
             const images = await Image.createPostImage({
-                car_fix_id: req.params.id,
+                post_id: req.params.id,
                 file_name: req.body.file_name
 
             });

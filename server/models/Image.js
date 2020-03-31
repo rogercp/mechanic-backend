@@ -15,6 +15,9 @@ const db = require("../../data/dbConfig");
     return db('imagines').insert(image)
   }
 
+  static createPostImage(image) {
+    return db('imagines').insert(image)
+  }
   // static createUserImage(image) {
   //   return db('imagines').insert(image)
   // }
@@ -28,6 +31,17 @@ const db = require("../../data/dbConfig");
     return db("imagines")
       .where("car_fix_id", car_fix_id)
   }
+
+  static findByPostId(post_id) {
+    return db("imagines")
+      .where("post_id", post_id)
+  }
+
+
+  
+  
+
+
 
   // static fetchUserImage(user_id){
   //   return db("imagines")
