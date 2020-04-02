@@ -156,7 +156,6 @@ class PostsController {
   }
 
   static async decrementLikes(req, res) {
-    console.log(req.params,"parameters for dislike")
     try {
 
       await Post.decreaseLikes(req.params.id);
@@ -175,9 +174,9 @@ class PostsController {
 
 
   static async deletePostImage(req, res) {
-    
+    console.log(req.params,"deletion id")
     try {
-        await User.deletePostImage(req.params.id);
+        await Post.deletePostImage(req.params.id);
 
         return res.status(200).json({
             message: "Successfully deleted image"
