@@ -98,7 +98,11 @@ const db = require('../../data/dbConfig')
             .decrement('like', 1)
     }
     
-
+    static deletePostImage(id){
+      return db("imagines")
+        .where("id", id).del()
+    }
+  
   
 
    

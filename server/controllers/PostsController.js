@@ -172,6 +172,25 @@ class PostsController {
       });
     }
   }
+
+
+  static async deletePostImage(req, res) {
+    
+    try {
+        await User.deletePostImage(req.params.id);
+
+        return res.status(200).json({
+            message: "Successfully deleted image"
+        });
+    } catch (err) {
+        return res.status(500).json({
+            error: {
+                message: "Internal Server Error"
+            }
+        });
+    }
+
+}
 }
 
 /**

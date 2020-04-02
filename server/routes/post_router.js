@@ -49,7 +49,10 @@ router.route("/:id/post_images")
     .all(require_body(["file_name"]))
     .post(ImagesController.createPostImage)
 
-    
+ router.route('/image/:id')
+    .all(restricted_access)
+    .delete(PostsController.deletePostImage)
+  
 
 
 
