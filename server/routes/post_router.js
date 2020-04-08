@@ -44,7 +44,6 @@ router.route("/dec/:id")
     .patch(PostsController.decrementLikes)
 
 router.route("/:id/post_images")
-    .all(restricted_access)
     .get(ImagesController.indexPostImage)
     .all(require_body(["file_name"]))
     .post(ImagesController.createPostImage)
@@ -53,6 +52,9 @@ router.route("/:id/post_images")
     .all(restricted_access)
     .delete(PostsController.deletePostImage)
   
+
+router.route("/postProfileImg/:id")
+    .get(PostsController.indexByIdPost)
 
 
 
