@@ -5,6 +5,7 @@ const express = require('express');
 const PostsController = require('../controllers/PostsController.js');
 const restricted_access = require('../middleware/restricted_access');
 const require_body = require('../middleware/require_body');
+const ImagesController = require('../controllers/ImagesController.js');
 
 
 
@@ -42,8 +43,18 @@ router.route("/dec/:id")
     .all(restricted_access)
     .patch(PostsController.decrementLikes)
 
+router.route("/:id/post_images")
+    .get(ImagesController.indexPostImage)
+    .all(require_body(["file_name"]))
+    .post(ImagesController.createPostImage)
 
-    
+ router.route('/image/:id')
+    .all(restricted_access)
+    .delete(PostsController.deletePostImage)
+  
+
+router.route("/postProfileImg/:id")
+    .get(PostsController.indexByIdPost)
 
 
 

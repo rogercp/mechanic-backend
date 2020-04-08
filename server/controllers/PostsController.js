@@ -29,7 +29,7 @@ class PostsController {
   static async allPosts(req, res) {
 
     try {
-    const posts = await Post.all();
+    const posts = await Post.allForPostImages();
 
     return res.status(200).json(posts);
     } catch (err) {
@@ -57,7 +57,6 @@ class PostsController {
       return post;
     
     })
-      
     return res.status(200).json(filteredPosts);
     } catch (err) {
       return res
@@ -78,6 +77,8 @@ class PostsController {
 
     const posts = await Post.all();
 
+    console.log(posts,"poststsssssss")
+
     const filterTerm = req.body.category
     if(filterTerm === "AllPosts"){
       return res.status(200).json(posts);
@@ -86,7 +87,7 @@ class PostsController {
         if(post.category === filterTerm)
         return post;
       })
-    console.log(filteredCategoryPosts,"filtered")
+    
    
     return res.status(200).json(filteredCategoryPosts);
     }
@@ -106,7 +107,6 @@ class PostsController {
 
     try {
       const post = await Post.create(req.body);
-
       res.status(201).json(post);
     } catch (err) {
       return res
@@ -138,7 +138,6 @@ class PostsController {
 
 
   static async incrementLikes(req, res) {
-    console.log(req.params,"parameters for like")
     try {
 
       await Post.increaseLikes(req.params.id);
@@ -156,7 +155,6 @@ class PostsController {
   }
 
   static async decrementLikes(req, res) {
-    console.log(req.params,"parameters for dislike")
     try {
 
       await Post.decreaseLikes(req.params.id);
@@ -172,6 +170,45 @@ class PostsController {
       });
     }
   }
+
+
+  static async deletePostImage(req, res) {
+    try {
+        await Post.deletePostImage(req.params.id);
+
+        return res.status(200).json({
+            message: "Successfully deleted image"
+        });
+    } catch (err) {
+        return res.status(500).json({
+            error: {
+                message: "Internal Server Error"
+            }
+        });
+    }
+
+}
+
+
+static async indexByIdPost(req, res) {
+  console.log("hitting")
+  const id = req.params.id;
+  try {
+    const postById = await Post.allForPostImages(id);
+    console.log(postById,"psotById")
+    return res.status(200).json(postById);
+
+
+  } catch (err) {
+    return res
+      .status(500)
+      .json({
+        error: {
+          message: "Internal Server Error"
+        }
+      });
+  }
+}
 }
 
 /**

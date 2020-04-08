@@ -56,23 +56,38 @@ const db = require('../../data/dbConfig')
       
      }
 
-    //  static async all(){
+     static async all(){
 
-    //     return db('posts')
-     
-    // }
+        // return db('posts')
 
-
-   static async all(){
-
-      return db.raw(`
-      
-      select * FROM posts INNER JOIN users ON posts.user_id = users.id
-
-      `)
+    return db.raw(`
     
-  }
+    select * FROM users LEFT JOIN posts ON users.id = posts.user_id
+
+    `)
+
+    // return db('posts').join('users', 'posts.users_id', 'users.id')
+    }
+
+
+  
    
+  static async allForPostImages(id){
+
+    // return db.raw(`
+    
+    // select * FROM posts INNER JOIN users ON posts.user_id = users.id 
+
+    // `)
+
+    // return db('users').where( {'id': id }).join('users','posts.user_id','users.id')
+   
+    // return db('posts').join('users', function() {
+    //   this.on('posts.users_id', '=', 'users.id').onIn('posts.id', id)
+    // })
+
+    return db('posts').join('users', 'posts.user_id = users.id and posts.id = 3')
+}
   
 
 //   static async filterByCategory(){
@@ -98,7 +113,12 @@ const db = require('../../data/dbConfig')
             .decrement('like', 1)
     }
     
-
+    static async deletePostImage(id){
+      console.log(id, "this is inside the deletepostfunction")
+      return await db("imagines")
+        .where("id", id).del()
+    }
+  
   
 
    
