@@ -171,6 +171,23 @@ class PostsController {
     }
   }
 
+  static async fetchPostLikes(req, res) {
+    try {
+
+      const  postLikes = await Post.fetchPostLikes(req.params.id);
+
+      return res.status(200).json(postLikes);
+    } catch (err) {
+      return res.status(500).json({
+        error: {
+          message: "Internal Server Error"
+        }
+      });
+    }
+  }
+
+  
+
 
   static async deletePostImage(req, res) {
     try {

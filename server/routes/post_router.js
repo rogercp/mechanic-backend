@@ -16,6 +16,7 @@ const router = express.Router()
 router.route("/all")
     .get(PostsController.allPosts)
 
+
 router.route("/search")
     .post(PostsController.filterPosts)
     
@@ -42,6 +43,10 @@ router.route("/inc/:id")
 router.route("/dec/:id")
     .all(restricted_access)
     .patch(PostsController.decrementLikes)
+
+router.route("/fetchPostLikes/:id")
+    .all(restricted_access)
+    .get(PostsController.fetchPostLikes)
 
 router.route("/:id/post_images")
     .get(ImagesController.indexPostImage)
