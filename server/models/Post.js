@@ -112,6 +112,13 @@ const db = require('../../data/dbConfig')
             .where("id", id) 
             .decrement('like', 1)
     }
+
+
+    static async fetchPostLikes(id){
+
+      return db.column('like').select().from('posts').where("id",id)
+      
+    }
     
     static async deletePostImage(id){
       console.log(id, "this is inside the deletepostfunction")
