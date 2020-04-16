@@ -27,7 +27,6 @@ router.route('/deactivate')
  .put(UsersController.deactivate)
 
  router.route('/username/:id')
-  .all(restricted_access)
   .get(UsersController.getUserName)
 
  router.route('/update/:id')
