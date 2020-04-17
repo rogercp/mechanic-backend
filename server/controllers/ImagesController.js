@@ -80,7 +80,8 @@ class ImagesController {
                 file_name: req.body.file_name
 
             });
-            res.status(201).json(images)
+            const imageGoingBack = await Image.findByPostId(req.params.id);
+            res.status(201).json(imageGoingBack)
 
         } catch (err) {
             res.status(500).json({

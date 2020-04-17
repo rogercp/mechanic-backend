@@ -77,10 +77,9 @@ class PostsController {
 
     const posts = await Post.all();
 
-    console.log(posts,"poststsssssss")
-
     const filterTerm = req.body.category
     if(filterTerm === "AllPosts"){
+      console.log(posts,"postss")
       return res.status(200).json(posts);
     }else{
       const filteredCategoryPosts= posts.filter((post)=>{
