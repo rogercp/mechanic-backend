@@ -58,13 +58,13 @@ const db = require('../../data/dbConfig')
 
      static async all(){
 
-        // return db('posts')
+        return db('posts')
 
-    return db.raw(`
+    // return db.raw(`
     
-    select * FROM users LEFT JOIN posts ON users.id = posts.user_id
+    // select * FROM users LEFT JOIN posts ON users.id = posts.user_id
 
-    `)
+    // `)
 
     // return db('posts').join('users', 'posts.users_id', 'users.id')
     }
