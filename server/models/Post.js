@@ -58,7 +58,7 @@ const db = require('../../data/dbConfig')
 
      static async all(){
 
-        return db('posts')
+        // return db('posts')
 
     // return db.raw(`
     
@@ -66,7 +66,7 @@ const db = require('../../data/dbConfig')
 
     // `)
 
-    // return db('posts').join('users', 'posts.users_id', 'users.id')
+    return db('users').join('posts', 'users.id', 'posts.user_id')
     }
 
 
