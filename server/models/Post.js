@@ -121,7 +121,6 @@ const db = require('../../data/dbConfig')
     }
     
     static async deletePostImage(id){
-      console.log(id, "this is inside the deletepostfunction")
       return await db("imagines")
         .where("id", id).del()
     }

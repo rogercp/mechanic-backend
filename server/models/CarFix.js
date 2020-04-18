@@ -74,6 +74,16 @@ const db = require('../../data/dbConfig')
     return  db('car_fix').where("id",id).update(update)
     
   }
+
+
+  
+  static async deleteCarFixImage(id){
+    console.log(id,"id for delete in th e models")
+    return await db("imagines")
+    .where("id", id).del()
+  }
+
+
  }
 
 
