@@ -30,13 +30,13 @@ const db = require('../../data/dbConfig')
           ){
             const [ids] = await db("car_fix").insert(
                {
-                car_id: car_field_id,
-                fix_not_maintenence: car_fields.fix_not_maintenence,
-                fix: car_fields.fix,
-                fix_description: car_fields.fix_description,
+                car_id:car_field_id.id,
+                fix_not_maintenence:car_fields.fix_not_maintenence,
+                fix:car_fields.fix,
+                fix_description:car_fields.fix_description,
                 fix_date: parseDate(car_fields.fix_date),
-                fix_price: car_fields.fix_price,
-                fixed_by:car_field_fixed_by
+                fix_price:car_fields.fix_price
+               
                },
                ["id"]
              );

@@ -25,7 +25,6 @@ class CarFixController {
 
   static async create(req, res) {
 
-   
 
     try {
 
