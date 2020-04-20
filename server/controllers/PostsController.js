@@ -43,6 +43,8 @@ class PostsController {
     }
   }
 
+ 
+
 
   static async filterPosts(req, res) {
    
@@ -70,18 +72,24 @@ class PostsController {
   }
 
   
-
-
+  
   static async filterByCategory(req, res) {
     try {
 
     const posts = await Post.all();
+    const postsByLikes = await Post.allByDescLikes();
 
     const filterTerm = req.body.category
+    const order = req.body.order
+    
     if(filterTerm === "AllPosts"){
-      console.log(posts,"postss")
-      return res.status(200).json(posts);
-    }else{
+      if(order === "date"){
+        return res.status(200).json(posts);
+      }else if( order === "likes"){
+        return res.status(200).json(postsByLikes);
+    }
+  }
+  else{
       const filteredCategoryPosts= posts.filter((post)=>{
         if(post.category === filterTerm)
         return post;
@@ -207,11 +215,9 @@ class PostsController {
 
 
 static async indexByIdPost(req, res) {
-  console.log("hitting")
   const id = req.params.id;
   try {
     const postById = await Post.allForPostImages(id);
-    console.log(postById,"psotById")
     return res.status(200).json(postById);
 
 

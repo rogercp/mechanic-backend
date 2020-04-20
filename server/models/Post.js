@@ -56,22 +56,22 @@ const db = require('../../data/dbConfig')
       
      }
 
-     static async all(){
+    static async all(){
 
-        // return db('posts')
 
-    // return db.raw(`
-    
-    // select * FROM users LEFT JOIN posts ON users.id = posts.user_id
+    return db('users').join('posts', 'users.id', 'posts.user_id').orderBy('posts.post_date','desc')
 
-    // `)
 
-    return db('users').join('posts', 'users.id', 'posts.user_id')
     }
 
+  static async allByDescLikes(){
 
+
+  return db('users').join('posts', 'users.id', 'posts.user_id').orderBy('posts.like','desc')
+
+  }
   
-   
+
   static async allForPostImages(id){
 
     // return db.raw(`
