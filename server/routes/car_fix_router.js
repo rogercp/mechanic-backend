@@ -12,11 +12,14 @@ const require_body = require('../middleware/require_body');
 const router = express.Router()
 
 ///->>/car_fix...
+router.route('/carFix_image/:id')
+    .all(restricted_access)
+    .delete(CarFixController.deleteCarFixImage)
+
 
 router.route("/:carId/:carFixId")
     .all(restricted_access)
     .delete(CarFixController.delete)
-
 
 router.route("/:id")
     .all(restricted_access)
@@ -27,7 +30,6 @@ router.route("/:id")
 router.route('/update/:id')
     .all(restricted_access)
     .put(CarFixController.updateCarFix)
-
 
 router.route("/:id/car_fix_images")
     .all(restricted_access)
