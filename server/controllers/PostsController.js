@@ -86,6 +86,7 @@ class PostsController {
       if(order === "date"){
         return res.status(200).json(posts);
       }else if( order === "likes"){
+        console.log(postsByLikes,"postsby?Likes")
         return res.status(200).json(postsByLikes);
     }
   }
