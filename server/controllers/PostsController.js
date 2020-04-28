@@ -46,16 +46,18 @@ class PostsController {
  
 
 
-  static async filterPosts(req, res) {
+  static async filterPostsForSearch(req, res) {
    
     try {
 
-    const posts = await Post.all();
+    const posts = await Post.allForSearch();
 
-    const filterTerm = req.body.searchTerm
-
+    const filterTermUpper = req.body.searchTerm.charAt(0).toUpperCase() 
+    const filterTermLower = req.body.searchTerm.charAt(0).toLowerCase() 
     const filteredPosts=posts.filter((post)=>{
-      if(post.post_text.includes(filterTerm))
+
+      if(post.post_text.includes(filterTermUpper,filterTermLower) || post.post_date.includes(filterTermUpper,filterTermLower)   ||  post.category.includes(filterTermUpper,filterTermLower)  || post.user_name.includes(filterTermUpper,filterTermLower))
+
       return post;
     
     })

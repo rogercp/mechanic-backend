@@ -11,6 +11,10 @@ const router = express.Router()
 
 ///->>/cars...
 
+router.route('/car_image/:id')
+    .all(restricted_access)
+    .delete(CarsController.deleteCarImage)
+
 router.route("/all")
     .all(restricted_access)
     .get(CarsController.all)

@@ -18,7 +18,7 @@ router.route("/all")
 
 
 router.route("/search")
-    .post(PostsController.filterPosts)
+    .post(PostsController.filterPostsForSearch)
     
 router.route("/filterCategory")
     .post(PostsController.filterByCategory)
