@@ -28,6 +28,7 @@ const db = require('../../data/dbConfig')
             const [ids] = await db('users').insert({
                 email: user.email,
                 uid: user.uid,
+
               },['id'])
         return ids.id
     } else{
@@ -35,6 +36,7 @@ const db = require('../../data/dbConfig')
         const [id] = await db('users').insert({
             email: user.email,
             uid: user.uid,
+ 
           })
           return id
     }
