@@ -49,7 +49,7 @@ const db = require('../../data/dbConfig')
 
       static async getAllPostComments(id){
         let numX = parseInt(id)
-        return db('comments').where("post_id",numX)  
+        return db('comments').where("post_id",numX).orderBy('comments.like','desc')
      }
 
 
