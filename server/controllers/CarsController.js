@@ -119,6 +119,23 @@ class CarsController {
 }
 
 
+static async deleteCarImage(req, res) {
+  console.log(req.params.id,"id for delete fix image")
+  try {
+      await Car.deleteCarImage(req.params.id);
+
+      return res.status(200).json({
+          message: "Successfully deleted image"
+      });
+  } catch (err) {
+      return res.status(500).json({
+          error: {
+              message: "Internal Server Error"
+          }
+      });
+  }
+
+}
 
 }
 

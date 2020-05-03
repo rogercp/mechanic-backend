@@ -55,19 +55,39 @@ const db = require('../../data/dbConfig')
         }
       
      }
+     static async allPostsFilter(filterTerm,incomingPageNumber){
 
-    static async all(){
+
+      return db('users').join('posts', 'users.id', 'posts.user_id').where('posts.category',filterTerm).orderBy('posts.post_date','desc').paginate({ perPage: 4, currentPage: incomingPageNumber , isLengthAware :true })
+  
+  
+      }
+      static async allPostsFilterByDescLikes(filterTerm,incomingPageNumber){
+
+        return db('users').join('posts', 'users.id', 'posts.user_id').where('posts.category',filterTerm).orderBy('posts.like','desc').paginate({ perPage: 4, currentPage: incomingPageNumber , isLengthAware :true })
+      }
+  
+
+    static async all(incomingPageNumber){
 
 
-    return db('users').join('posts', 'users.id', 'posts.user_id').orderBy('posts.post_date','desc')
+    return db('users').join('posts', 'users.id', 'posts.user_id').orderBy('posts.post_date','desc').paginate({ perPage: 4, currentPage: incomingPageNumber , isLengthAware :true });
 
 
     }
 
-  static async allByDescLikes(){
+    static async allForSearch(incomingPageNumber){
 
 
-  return db('users').join('posts', 'users.id', 'posts.user_id').orderBy('posts.like','desc')
+      return db('users').join('posts', 'users.id', 'posts.user_id').orderBy('posts.post_date','desc')
+  
+  
+      }
+
+  static async allByDescLikes(incomingPageNumber){
+
+
+  return db('users').join('posts', 'users.id', 'posts.user_id').orderBy('posts.like','desc').paginate({ perPage: 4, currentPage: incomingPageNumber , isLengthAware :true });
 
   }
   

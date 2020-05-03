@@ -18,14 +18,14 @@ router.route("/all")
 
 
 router.route("/search")
-    .post(PostsController.filterPosts)
+    .post(PostsController.filterPostsForSearch)
     
 router.route("/filterCategory")
     .post(PostsController.filterByCategory)
     
-router.route("/")
-    .all(restricted_access)
-    .get(PostsController.allUserPosts)
+// router.route("/")
+//     .all(restricted_access)
+//     .get(PostsController.allUserPosts)
 
 router.route("/")
     .all(restricted_access)

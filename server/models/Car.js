@@ -94,6 +94,12 @@ const db = require('../../data/dbConfig')
 //    example()
 
 
+static async deleteCarImage(id){
+  return await db("imagines")
+  .where("id", id).del()
+}
+
+
    
  }
 

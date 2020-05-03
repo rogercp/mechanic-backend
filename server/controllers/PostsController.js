@@ -46,16 +46,18 @@ class PostsController {
  
 
 
-  static async filterPosts(req, res) {
+  static async filterPostsForSearch(req, res) {
    
     try {
 
-    const posts = await Post.all();
+    const posts = await Post.allForSearch();
 
-    const filterTerm = req.body.searchTerm
-
+    const filterTermUpper = req.body.searchTerm.charAt(0).toUpperCase() 
+    const filterTermLower = req.body.searchTerm.charAt(0).toLowerCase() 
     const filteredPosts=posts.filter((post)=>{
-      if(post.post_text.includes(filterTerm))
+
+      if(post.post_text.includes(filterTermUpper,filterTermLower) || post.post_date.includes(filterTermUpper,filterTermLower)   ||  post.category.includes(filterTermUpper,filterTermLower)  || post.user_name.includes(filterTermUpper,filterTermLower))
+
       return post;
     
     })
@@ -76,28 +78,35 @@ class PostsController {
   static async filterByCategory(req, res) {
     try {
 
-    const posts = await Post.all();
-    const postsByLikes = await Post.allByDescLikes();
-
+    const incomingPageNumber = req.body.currentPage
     const filterTerm = req.body.category
     const order = req.body.order
     
-    if(filterTerm === "AllPosts"){
+  if(filterTerm === "AllPosts"){
+
       if(order === "date"){
+        const posts = await Post.all(incomingPageNumber);
         return res.status(200).json(posts);
       }else if( order === "likes"){
+        const postsByLikes = await Post.allByDescLikes(incomingPageNumber);
         return res.status(200).json(postsByLikes);
     }
+
   }
   else{
-      const filteredCategoryPosts= posts.filter((post)=>{
-        if(post.category === filterTerm)
-        return post;
-      })
+    if(order === "date"){
+    const postsFilter = await Post.allPostsFilter(filterTerm,incomingPageNumber)
+    return res.status(200).json(postsFilter);
+
+    }else if (order == 'likes'){
+      const postsFilter = await Post.allPostsFilterByDescLikes(filterTerm,incomingPageNumber)
+      return res.status(200).json(postsFilter);
+    }
+  }
     
    
-    return res.status(200).json(filteredCategoryPosts);
-    }
+    
+    
       
     } catch (err) {
       return res
@@ -141,7 +150,6 @@ class PostsController {
       });
     }
   }
-
 
 
   static async incrementLikes(req, res) {
