@@ -1,6 +1,6 @@
-# Backend - Brāv
+# Backend - MECH
 
-Backend delpoyed at [Heroku](https://brav--project.herokuapp.com/)
+Backend delpoyed at [Heroku](https://mech-1234.herokuapp.com/)
 
 ## Getting started
 
